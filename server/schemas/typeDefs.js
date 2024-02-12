@@ -20,6 +20,21 @@ type Recipe {
     recipeAuthor: String
     createdAt: String
     comments: [Comment]
+    likes: [Like]
+}
+
+type Comment {
+    _id: ID
+    commentText: String
+    recipeRate: Number
+    commentAuthor: String
+    createdAt: String
+}
+
+type Like {
+    _id: ID
+    like: Boolean
+    likedBy: String
 }
 `;
 
