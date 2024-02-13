@@ -18,6 +18,10 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
     },
+    recipeDescription:{
+        type: String,
+        required: true,
+    },
     recipeDifficulty: {
         type: Number,
         min: 1,
