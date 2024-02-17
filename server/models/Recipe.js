@@ -4,6 +4,7 @@ const recipeSchema = new Schema({
     ingredientCount: {
         type: Number,
         required: true,
+        max: 40,
 
     },
     ingredients: {
@@ -17,6 +18,7 @@ const recipeSchema = new Schema({
     steps: {
         type: String,
         required: true,
+        max: 20,
     },
     recipeDescription:{
         type: String,

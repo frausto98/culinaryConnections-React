@@ -53,7 +53,7 @@ type Query {
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addRecipe(ingredientCount: Number, ingredients: String, stepCount: Number, steps: String, recipeDescription: String): Recipe
+    addRecipe(ingredientCount: Number, ingredients: String, stepCount: Number, steps: String, recipeDescription: String, recipeDifficulty: Number): Recipe
     addComment(recipeId: ID!, commentText: String): Recipe
     removeRecipe(recipeId: ID!): Recipe
     removeComment(recipeId: ID!, commentId: ID!) Recipe

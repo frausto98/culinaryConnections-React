@@ -27,7 +27,43 @@ const resolvers = {
     },
 
     Mutation: {
-
+        addUser: async ( parent, {username, email, password }) => {
+            const user = await User.create({username, email, password });
+            const token = signToken(user);
+            return {token, user}
+        },
+        login: async (parent, {email, password}) => {
+            const user = await User.findOne({email});
+            if(!user) {
+                throw AuthenticationError
+            }
+            const correctPW = await user.isCorrectPassword(password);
+            if(!correctPW) {
+                throw AuthenticationError
+            }
+            const token = signToken(user)
+            return {token, user};
+        },
+        addRecipe: async (parent, {ingredientCount, ingredients, stepCount, steps, recipeDescription, recipeDifficulty}, context) => {
+            if(context.user) {
+                const recipe = await Recipe.create({
+                    ingredientCount,
+                    ingredients,
+                    stepCount,
+                    steps,
+                    recipeDescription,
+                    recipeDifficulty,
+                    recipeAuthor: context.user.username,
+                });
+                await User.findOneAndUpdate(
+                    {_id: context.user._id},
+                    { $addToSet: { recipes: recipe._id}}
+                );
+                return recipe;
+            }
+            throw AuthenticationError;
+            ('Log in to add a Recipe!')
+        }
     }
 }
 
