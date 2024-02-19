@@ -48,11 +48,6 @@ const recipeSchema = new Schema({
                 minlength: 1,
                 maxlength: 280,
             },
-            recipeRate: {
-                type: Number,
-                min: 1,
-                max: 10,
-            },
             commentAuthor: {
                 type: String,
                 required: true,
@@ -72,6 +67,18 @@ const recipeSchema = new Schema({
             likedBy: {
                 type: String,
             }
+        },
+    ],
+    rates: [
+        {
+            rate: {
+                type: Number,
+                min: 1,
+                max: 10,
+            },
+            ratedBy: {
+                type: String
+            },
         },
     ],
 });

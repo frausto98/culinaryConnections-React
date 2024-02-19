@@ -63,8 +63,44 @@ const resolvers = {
             }
             throw AuthenticationError;
             ('Log in to add a Recipe!')
-        }
-    }
+        },
+        addComment: async (parent, { recipeId, commentText }, context) => {
+            if(context.user) {
+                //findOneAndUpdate takes a ( filter, updateOpperator, and altOptions ) as args
+                return Recipe.findOneAndUpdate(
+                    { _id: recipeId },
+                    {
+                        $addToSet: {
+                            comments: { commentText, commentAuthor: context.user.username },
+                        },
+                    },
+                    {
+                        new: true,
+                        runValidators: true,
+                    },
+                );
+            }
+            throw AuthenticationError;
+        },
+        removeRecipe: async ( parent, { recipeId }, context ) => {
+            if (context.user) {
+                const recipe = await Recipe.findOneAndDelete(
+                    {
+                        _id: recipeId,
+                        thoughtAuthor: context.user.username
+                    },
+                );
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    {
+                        $pull: { recipes: recipe._id }
+                    },
+                );
+                return recipe;
+            }
+            throw AuthenticationError;
+        },
+    },
 }
 
 module.exports = resolvers
