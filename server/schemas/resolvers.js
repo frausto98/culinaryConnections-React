@@ -71,7 +71,10 @@ const resolvers = {
                     { _id: recipeId },
                     {
                         $addToSet: {
-                            comments: { commentText, commentAuthor: context.user.username },
+                            comments: { 
+                                commentText, 
+                                commentAuthor: context.user.username 
+                            },
                         },
                     },
                     {
@@ -99,6 +102,63 @@ const resolvers = {
                 return recipe;
             }
             throw AuthenticationError;
+        },
+        removeComment: async ( parent, {recipeId, commentId }, context) => {
+            if (context.user) {
+                return Recipe.findOneAndUpdate (
+                    { _id: recipeId },
+                    {
+                        $pull: {
+                            comments: {
+                                _id: commentId,
+                                commentAuthor: context.user.username
+                            },
+                        },
+                    },
+                    { new: true, }
+                );
+            }
+            throw AuthenticationError;
+        },
+        leaveALike: async ( parent, {recipeId, like}, context) => {
+            if (context.user) {
+                return Recipe.findOneAndUpdate(
+                    { _id: recipeId },
+                    {
+                        $addToSet: {
+                            likes: {
+                                like,
+                                likedBy: context.user.username
+                            },
+                        },
+                    },
+                    {
+                        new: true,
+                        runValidators: true,
+                    }
+                );
+            }
+            throw AuthenticationError
+        },
+        leaveARate: async ( parent, { recipeId, rate }, context) => {
+            if (context.user) {
+                return Recipe.findOneAndUpdate(
+                    { _id: recipeId },
+                    {
+                        $addToSet: {
+                            rates: {
+                                rate,
+                                ratedBy: context.user.username
+                            },
+                        },
+                    },
+                    {
+                        new: true,
+                        runValidators: true,
+                    }
+                );
+            }
+            throw AuthenticationError
         },
     },
 }

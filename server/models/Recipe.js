@@ -22,6 +22,8 @@ const recipeSchema = new Schema({
     },
     recipeDescription:{
         type: String,
+        minLength: 1,
+        maxLength: 750,
         required: true,
     },
     recipeDifficulty: {
@@ -45,8 +47,8 @@ const recipeSchema = new Schema({
             commentText: {
                 type: String,
                 required: true,
-                minlength: 1,
-                maxlength: 280,
+                minLength: 1,
+                maxLength: 280,
             },
             commentAuthor: {
                 type: String,

@@ -27,7 +27,6 @@ type Recipe {
 type Comment {
     _id: ID
     commentText: String
-    recipeRate: Number
     commentAuthor: String
     createdAt: String
 }
@@ -37,6 +36,13 @@ type Like {
     like: Boolean
     likedBy: String
 }
+
+type Rate {
+    _id: ID
+    rate: Number
+    ratedBy: String
+}
+
 type Auth {
     token: ID!
     user: User
@@ -57,7 +63,8 @@ type Mutation {
     addComment(recipeId: ID!, commentText: String): Recipe
     removeRecipe(recipeId: ID!): Recipe
     removeComment(recipeId: ID!, commentId: ID!) Recipe
-    leaveALike(like: Boolean) Recipe
+    leaveALike(recipeId: ID!, like: Boolean) Recipe
+    leaveARate(recipeId: ID!, rate: Number) Recipe
 }
 `;
 
