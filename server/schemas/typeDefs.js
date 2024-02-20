@@ -12,12 +12,12 @@ type User {
 
 type Recipe {
     _id: ID
-    ingredientCount: Number
+    ingredientCount: Int
     ingredients: String
-    stepCount: Number
+    stepCount: Int
     steps: String
     recipeDescription: String
-    recipeDifficulty: Number
+    recipeDifficulty: Float
     recipeAuthor: String
     createdAt: String
     comments: [Comment]!
@@ -39,7 +39,7 @@ type Like {
 
 type Rate {
     _id: ID
-    rate: Number
+    rate: Float
     ratedBy: String
 }
 
@@ -59,12 +59,12 @@ type Query {
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addRecipe(ingredientCount: Number, ingredients: String, stepCount: Number, steps: String, recipeDescription: String, recipeDifficulty: Number): Recipe
+    addRecipe(ingredientCount: Int, ingredients: String, stepCount: Int, steps: String, recipeDescription: String, recipeDifficulty: Float): Recipe
     addComment(recipeId: ID!, commentText: String): Recipe
     removeRecipe(recipeId: ID!): Recipe
     removeComment(recipeId: ID!, commentId: ID!): Recipe
     leaveALike(recipeId: ID!, like: Boolean): Recipe
-    leaveARate(recipeId: ID!, rate: Number): Recipe
+    leaveARate(recipeId: ID!, rate: Float): Recipe
 }
 `;
 
