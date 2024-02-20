@@ -62,9 +62,9 @@ type Mutation {
     addRecipe(ingredientCount: Number, ingredients: String, stepCount: Number, steps: String, recipeDescription: String, recipeDifficulty: Number): Recipe
     addComment(recipeId: ID!, commentText: String): Recipe
     removeRecipe(recipeId: ID!): Recipe
-    removeComment(recipeId: ID!, commentId: ID!) Recipe
-    leaveALike(recipeId: ID!, like: Boolean) Recipe
-    leaveARate(recipeId: ID!, rate: Number) Recipe
+    removeComment(recipeId: ID!, commentId: ID!): Recipe
+    leaveALike(recipeId: ID!, like: Boolean): Recipe
+    leaveARate(recipeId: ID!, rate: Number): Recipe
 }
 `;
 
