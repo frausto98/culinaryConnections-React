@@ -44,13 +44,14 @@ const resolvers = {
             const token = signToken(user)
             return {token, user};
         },
-        addRecipe: async (parent, {ingredientCount, ingredients, stepCount, steps, recipeDescription, recipeDifficulty}, context) => {
+        addRecipe: async (parent, {ingredientCount, ingredients, stepCount, steps, recipeName, recipeDescription, recipeDifficulty}, context) => {
             if(context.user) {
                 const recipe = await Recipe.create({
                     ingredientCount,
                     ingredients,
                     stepCount,
                     steps,
+                    recipeName,
                     recipeDescription,
                     recipeDifficulty,
                     recipeAuthor: context.user.username,

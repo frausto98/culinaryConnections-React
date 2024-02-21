@@ -16,6 +16,7 @@ type Recipe {
     ingredients: String
     stepCount: Int
     steps: String
+    recipeName: String
     recipeDescription: String
     recipeDifficulty: Float
     recipeAuthor: String
@@ -59,7 +60,7 @@ type Query {
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addRecipe(ingredientCount: Int, ingredients: String, stepCount: Int, steps: String, recipeDescription: String, recipeDifficulty: Float): Recipe
+    addRecipe(ingredientCount: Int, ingredients: String, stepCount: Int, steps: String, recipeName: String, recipeDescription: String, recipeDifficulty: Float): Recipe
     addComment(recipeId: ID!, commentText: String): Recipe
     removeRecipe(recipeId: ID!): Recipe
     removeComment(recipeId: ID!, commentId: ID!): Recipe

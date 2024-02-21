@@ -20,6 +20,11 @@ const recipeSchema = new Schema({
         required: true,
         max: 20,
     },
+    recipeName: {
+        type: String,
+        minLength: 1,
+        maxLength: 120,
+    },
     recipeDescription:{
         type: String,
         minLength: 1,
