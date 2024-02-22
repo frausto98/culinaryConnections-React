@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx'
+import Home from './pages/Home.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -16,15 +17,15 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      {
-        path: '/Page1',
-      },
-      {
-        path: '/Page2',
-      },
-      {
-        path: '/Page3'
-      },
+      // {
+      //   path: '/Page1',
+      // },
+      // {
+      //   path: '/Page2',
+      // },
+      // {
+      //   path: '/Page3'
+      // },
     ],
   },
 ]);
