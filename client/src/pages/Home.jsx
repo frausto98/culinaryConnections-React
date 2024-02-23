@@ -1,7 +1,6 @@
 const Home = () => {
     return (
-        <div>
-            <body>
+        <div className="body">
             <h1>
                 Hello World!
             </h1>
@@ -17,7 +16,6 @@ const Home = () => {
                 vitae lorem tortor. In elementum ultricies tempus. Interdum et malesuada
                 fames ac ante ipsum primis in faucibus.
             </p>
-            </body>
         </div>
     )
 }
