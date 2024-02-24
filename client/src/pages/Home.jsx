@@ -5,6 +5,9 @@ import Auth from '../utils/auth'
 import '../styles/Home.css'
 
 const Home = () => {
+
+    const [showModal, setShowModal] = useState(false)
+
     return (
         <div id="homePage">
             <div className="homeTitle">

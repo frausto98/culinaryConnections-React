@@ -6,6 +6,8 @@
     min-width: 320px;
     min-height: 90vh;
     max-width: 70vw;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #homePage h1 {
