@@ -2,13 +2,13 @@ import '../styles/Home.css'
 
 const Home = () => {
     return (
-        <>
-            <div className="title">
+        <div id="homePage">
+            <div className="homeTitle">
                 <h1>
                     Hello World!
                 </h1>
             </div>
-            <div className="body">
+            <div className="homeBody">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque
                     velit, lobortis ut magna varius, blandit rhoncus sem. Morbi lacinia nisi
@@ -22,7 +22,7 @@ const Home = () => {
                     fames ac ante ipsum primis in faucibus.
                 </p>
             </div>
-        </>
+        </div>
 
     )
 }
