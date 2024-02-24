@@ -1,3 +1,7 @@
+import {useState} from 'react';
+import { Link } from 'react-router-dom';
+import Auth from '../utils/auth'
+
 import '../styles/Home.css'
 
 const Home = () => {
@@ -12,6 +16,9 @@ const Home = () => {
                 <p>
                     Click below for Sign-Up/Login page!
                 </p>
+                <button>
+                    Sign-Up/Login
+                </button>
             </div>
         </div>
 
