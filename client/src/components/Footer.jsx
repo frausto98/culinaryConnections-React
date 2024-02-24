@@ -1,6 +1,13 @@
+import '../styles/Footer.css'
+
 const Footer = () => {
     return (
-        <h1>Made by me! Adrian!</h1>
+        <div id="footerComp">
+            <h1>
+                Made by me! Adrian!
+            </h1>
+        </div>
+        
     )
 }
 
