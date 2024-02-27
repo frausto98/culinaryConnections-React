@@ -91,7 +91,6 @@ const resolvers = {
                 const recipe = await Recipe.findOneAndDelete(
                     {
                         _id: recipeId,
-                        thoughtAuthor: context.user.username
                     },
                 );
                 await User.findOneAndUpdate(

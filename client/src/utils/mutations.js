@@ -68,3 +68,62 @@ mutation addComment($recipeId: ID!, $commentText: String) {
     }
   }
 `
+
+export const REMOVE_RECIPE = gql`
+mutation removeRecipe($recipeId: ID!) {
+    removeRecipe(recipeId: $recipeId) {
+      _id
+      ingredientCount
+      ingredients
+      stepCount
+      steps
+      recipeName
+      recipeDescription
+      recipeDifficulty
+      recipeAuthor
+      createdAt
+      comments {
+        _id
+        commentAuthor
+        commentText
+        createdAt
+      }
+      likes {
+        _id
+        like
+        likedBy
+      }
+    }
+  }
+`
+
+export const REMOVE_COMMENT = gql`
+mutation removeComment($recipeId: ID!) {
+    removeComment(recipeId: $recipeId) {
+      _id
+      ingredientCount
+      ingredients
+      stepCount
+      steps
+      recipeName
+      recipeDescription
+      recipeDifficulty
+      recipeAuthor
+      createdAt
+      comments {
+        _id
+        commentAuthor
+        commentText
+        createdAt
+      }
+    }
+  }
+`
+
+export const LEAVE_LIKE = gql`
+
+`
+
+export const LEAVE_RATE = gql`
+
+`
