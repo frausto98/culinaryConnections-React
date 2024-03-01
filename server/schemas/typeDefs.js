@@ -54,7 +54,7 @@ type Query {
     user(username: String!): User
     users: [User]
     recipe(recipeId: ID!): Recipe
-    recipes(username: String): [Recipe]
+    recipes: [Recipe]
 }
 
 type Mutation {

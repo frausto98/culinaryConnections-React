@@ -65,6 +65,11 @@ mutation addComment($recipeId: ID!, $commentText: String) {
         commentText
         createdAt
       }
+      likes {
+        _id
+        like
+        likedBy
+      }
     }
   }
 `
@@ -116,12 +121,41 @@ mutation removeComment($recipeId: ID!) {
         commentText
         createdAt
       }
+      likes {
+        _id
+        like
+        likedBy
+      }
     }
   }
 `
 
 export const LEAVE_LIKE = gql`
-
+mutation Mutation($recipeId: ID!, $like: Boolean) {
+    leaveALike(recipeId: $recipeId, like: $like) {
+      _id
+      ingredientCount
+      ingredients
+      stepCount
+      steps
+      recipeName
+      recipeDescription
+      recipeDifficulty
+      recipeAuthor
+      createdAt
+      comments {
+        _id
+        commentAuthor
+        commentText
+        createdAt
+      }
+      likes {
+        _id
+        like
+        likedBy
+      }
+    }
+  }
 `
 
 export const LEAVE_RATE = gql`
