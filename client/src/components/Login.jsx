@@ -19,11 +19,11 @@ const LoginForm = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropogation();
-        }
+        // const form = event.currentTarget;
+        // if (form.checkValidity() === false) {
+        //     event.preventDefault();
+        //     event.stopPropogation();
+        // }
 
         try{
             const {data} = await login({
@@ -43,6 +43,7 @@ const LoginForm = () => {
             password: '',
         })
     };
+    
     return(
         <>
         
