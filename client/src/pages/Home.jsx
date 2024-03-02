@@ -16,12 +16,23 @@ const Home = () => {
                 </h1>
             </div>
             <div className="homeBody">
+                {Auth.loggedIn() ? (
+                <>
+                <p>
+                    If i'm not logged in, i can see this (using the "!" opertator on the Auth)
+                </p>
+                </>
+                ):(
+                <>
                 <p>
                     Click below for Sign-Up/Login page!
                 </p>
                 <button>
                     Sign-Up/Login
                 </button>
+                </>
+                )}
+                
             </div>
         </div>
 
