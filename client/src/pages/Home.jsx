@@ -1,6 +1,7 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Auth from '../utils/auth'
+
+import Auth from '../utils/auth';
 
 import '../styles/Home.css'
 
@@ -17,22 +18,23 @@ const Home = () => {
             </div>
             <div className="homeBody">
                 {Auth.loggedIn() ? (
-                <>
-                <p>
-                    If i'm not logged in, i can see this (using the "!" opertator on the Auth)
-                </p>
-                </>
-                ):(
-                <>
-                <p>
-                    Click below for Sign-Up/Login page!
-                </p>
-                <button>
-                    Sign-Up/Login
-                </button>
-                </>
+                    <>
+                        <p>
+                            It looks like you may be logged in, already!
+                            Please click below to continue.
+                        </p>
+                    </>
+                ) : (
+                    <>
+                        <p>
+                            Click below for Sign-Up/Login page!
+                        </p>
+                        <button>
+                            Sign-Up/Login
+                        </button>
+                    </>
                 )}
-                
+
             </div>
         </div>
 
