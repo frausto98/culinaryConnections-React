@@ -10,7 +10,29 @@
     justify-content: center;
 }
 
-#homePage h1 {
+.homeTitle h1 {
     font-size: 3.2em;
     line-height: 1.1;
 }
+
+#homeModalButton {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: olive;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+#homeModalButton:hover {
+    border-color: #646cff;
+}
+
+#homeModalButton:focus,
+#homeModalButton:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+

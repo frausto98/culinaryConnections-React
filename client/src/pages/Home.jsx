@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css'
 
 import Auth from '../utils/auth';
 
@@ -29,9 +31,15 @@ const Home = () => {
                         <p>
                             Click below for Sign-Up/Login page!
                         </p>
-                        <button>
-                            Sign-Up/Login
-                        </button>
+                        <Popup className="modal" id="homeModal" trigger={
+                            <button id="homeModalButton">
+                                Sign-Up/Login
+                            </button>
+                        }>
+                            <div id="homeModalContent">
+                                check this out?!?!?!
+                            </div>
+                        </Popup>
                     </>
                 )}
 

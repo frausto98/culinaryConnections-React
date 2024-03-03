@@ -54,7 +54,9 @@ const SignUpPage = () => {
 
     return (
         <>
-
+            <div className='signUpForm'>
+                
+            </div>
         </>
     )
 }
