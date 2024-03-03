@@ -31,15 +31,20 @@ const Home = () => {
                         <p>
                             Click below for Sign-Up/Login page!
                         </p>
+
+                        {/* below is the reactjs-popup.
+                        The entire overlay has its own set of classNames and Ids for each HTML Element */}
+
                         <Popup className="modal" id="homeModal" trigger={
-                            <button id="homeModalButton">
+                            <button className="modalTrigger" id="homeModalButton">
                                 Sign-Up/Login
                             </button>
                         }>
-                            <div id="homeModalContent">
+                            <div className="modalContent" id="homeModalContent">
                                 check this out?!?!?!
                             </div>
                         </Popup>
+                        {/* --------------------- */}
                     </>
                 )}
 

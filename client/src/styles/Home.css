@@ -36,3 +36,31 @@
     outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* for modal purposes */
+
+.modal-content {
+    margin: auto;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    width: 50%;
+    padding: 5px;
+}
+
+.modal-arrow {
+    color: rgb(0, 0, 0);
+}
+
+[role='tooltip'].modal-content {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+[data-popup='tooltip'].modal-overlay {
+    background: transparent;
+}
+
+/* ---------------- */
