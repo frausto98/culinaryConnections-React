@@ -15,7 +15,7 @@
     line-height: 1.1;
 }
 
-#homeModalButton {
+#homeModalTrigger {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
@@ -27,12 +27,12 @@
     transition: border-color 0.25s;
 }
 
-#homeModalButton:hover {
+#homeModalTrigger:hover {
     border-color: #646cff;
 }
 
-#homeModalButton:focus,
-#homeModalButton:focus-visible {
+#homeModalTrigger:focus,
+#homeModalTrigger:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -61,6 +61,12 @@
 
 [data-popup='tooltip'].modal-overlay {
     background: transparent;
+}
+
+.modal-content .preferenceTab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* ---------------- */

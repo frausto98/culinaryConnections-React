@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { SIGNUP } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-const SignUpPage = () => {
+const SignupForm = () => {
     // set initial form state
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
     // set state for form validation
