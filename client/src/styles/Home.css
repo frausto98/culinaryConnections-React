@@ -63,7 +63,7 @@
     background: transparent;
 }
 
-.modal-content .preferenceTab {
+.modal-content .modalHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

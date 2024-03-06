@@ -9,8 +9,6 @@ import '../styles/Home.css'
 
 const Home = () => {
 
-    const [showModal, setShowModal] = useState(false)
-
     return (
         <div id="homePage">
             <div className="homeTitle">
@@ -35,35 +33,40 @@ const Home = () => {
                         {/* below is the reactjs-popup.
                         The entire overlay has its own set of classNames and Ids for each HTML Element */}
 
-                        <Popup className="modal" id="homeModal" trigger={
-                            <button className="modalTrigger" id="homeModalTrigger">
-                                Form is Here
-                            </button>
-                        }>
-                            <div className="modalCard" id="homeModalCard" defaultActiveKey="login">
-                                <div className="preferenceTab" id="homeModalTab">
-                                    <h3>
-                                        Sign Up
-                                    </h3>
-                                    <h3>
-                                        Log In
-                                    </h3>
-                                </div>
-                                <div 
-                                className="modalBody" 
-                                id="homeModalBody" 
-                                show={showModal}
-                                onHide={() => setShowModal(false)}
-                                >
-                                    <div className="bodyContent" id="homeBodyContent">
-                                        <div className="bodyWindow" id="signUpWindow">
-                                            {/* Put <LoginForm/> Here */}
+                        <Popup className="modal" id="homeModal"
+                            trigger={
+                                <button className="modalTrigger" id="homeModalTrigger" >
+                                    Form is Here
+                                </button>
+                            }
+                            modal
+                        >
+                            <div className="modalCard" id="homeModalCard">
+                                <div className="modalHeader" id="homeModalHeader">
+                                    <Popup trigger={
+                                        <button> Sign Up </button>
+                                    }>
+                                        <div className="modalBody" id="homeModalBody" >
+                                            <div className="bodyContent" id="homeBodyContent">
+                                                <div className="bodyWindow" id="signUpWindow">
+                                                    {/* Put <SignupForm/> Here */}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="bodyWindow" id="logInWindow">
-                                            {/* Put <SignupForm/> Here */}
+                                    </Popup>
+                                    <Popup trigger={
+                                        <button> Log In </button>
+                                    }>
+                                        <div className="modalBody" id="homeModalBody" >
+                                            <div className="bodyContent" id="homeBodyContent">
+                                                <div className="bodyWindow" id="signUpWindow">
+                                                    {/* Put <LoginForm/> Here */}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </Popup>
                                 </div>
+
                             </div>
                         </Popup>
 
