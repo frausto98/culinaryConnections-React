@@ -5,9 +5,15 @@ import 'reactjs-popup/dist/index.css'
 
 import Auth from '../utils/auth';
 
+import LoginForm from '../components/Login';
+import SignupForm from '../components/SignUp';
+
 import '../styles/Home.css'
 
 const Home = () => {
+
+    // const [open, setOpen] = useState(false)
+    // const closeModal = () => setOpen(false)
 
     return (
         <div id="homePage">
@@ -49,7 +55,8 @@ const Home = () => {
                                         <div className="modalBody" id="homeModalBody" >
                                             <div className="bodyContent" id="homeBodyContent">
                                                 <div className="bodyWindow" id="signUpWindow">
-                                                    {/* Put <SignupForm/> Here */}
+                                                    
+                                                    <span>uhhhh??</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -59,8 +66,8 @@ const Home = () => {
                                     }>
                                         <div className="modalBody" id="homeModalBody" >
                                             <div className="bodyContent" id="homeBodyContent">
-                                                <div className="bodyWindow" id="signUpWindow">
-                                                    {/* Put <LoginForm/> Here */}
+                                                <div className="bodyWindow" id="logInWindow">
+                                                    
                                                 </div>
                                             </div>
                                         </div>

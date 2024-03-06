@@ -158,6 +158,6 @@ mutation Mutation($recipeId: ID!, $like: Boolean) {
   }
 `
 
-export const LEAVE_RATE = gql`
+// export const LEAVE_RATE = gql`
 
-`
+// `
