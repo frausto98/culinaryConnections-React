@@ -50,26 +50,17 @@ const Home = () => {
                             <div className="modalCard" id="homeModalCard">
                                 <div className="modalHeader" id="homeModalHeader">
                                     <Popup trigger={
-                                        <button> Sign Up </button>
+                                        <button className='formTrigger'> Sign Up </button>
                                     }>
-                                        <div className="modalBody" id="homeModalBody" >
-                                            <div className="bodyContent" id="homeBodyContent">
-                                                <div className="bodyWindow" id="signUpWindow">
-                                                    
-                                                    <span>uhhhh??</span>
-                                                </div>
-                                            </div>
+                                        <div className="modalBody" id="signUpBody" >
+                                            <p>uhhhh??</p>
                                         </div>
                                     </Popup>
                                     <Popup trigger={
-                                        <button> Log In </button>
+                                        <button className='formTrigger'> Log In </button>
                                     }>
-                                        <div className="modalBody" id="homeModalBody" >
-                                            <div className="bodyContent" id="homeBodyContent">
-                                                <div className="bodyWindow" id="logInWindow">
-                                                    
-                                                </div>
-                                            </div>
+                                        <div className="modalBody" id="loginBody" >
+
                                         </div>
                                     </Popup>
                                 </div>

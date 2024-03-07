@@ -49,7 +49,6 @@ const LoginForm = () => {
             <div className='form' id="loginForm">
                 <h1> Hello World </h1>
             </div>
-        
         </>
     );
 };

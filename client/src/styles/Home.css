@@ -40,14 +40,14 @@
 
 .modal-content {
     margin: auto;
-    color: rgb(255, 255, 255);
-    background: rgb(0, 0, 0);
+    color:  rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
     width: 50%;
     padding: 5px;
 }
 
 .modal-arrow {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 [role='tooltip'].modal-content {
@@ -69,8 +69,9 @@
     justify-content: space-between;
 }
 
-.modal-content .bodyWindow span {
-    background:black;
+.modal-content .formTrigger {
+    background-color: greenyellow;
 }
+
 
 /* ---------------- */
