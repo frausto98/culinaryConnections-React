@@ -7,48 +7,49 @@ import Auth from '../utils/auth';
 const SignupForm = () => {
     // set initial form state
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-    // set state for form validation
-    const [validated] = useState(false);
-    // set state for alert
-    const [showAlert, setShowAlert] = useState(false);
+    // // set state for form validation
+    // const [validated] = useState(false);
+    // // set state for alert
+    // const [showAlert, setShowAlert] = useState(false);
 
     const [signUp, { error }] = useMutation(SIGNUP);
 
-    const handleInputChange = (event) => {
-        // it is my interpretation that the "name" referenced here is referencing the "name" attribute given on the "target (the html element)"
-        const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value });
-    };
+    // const handleInputChange = (event) => {
+    //     // it is my interpretation that the "name" referenced here is referencing the "name" attribute given on the "target (the html element)"
+    //     const { name, value } = event.target;
+    //     setUserFormData({ ...userFormData, [name]: value });
+    // };
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
+    // const handleFormSubmit = async (event) => {
+    //     event.preventDefault();
 
-        try {
+    //     try {
 
-            const { data } = await signUp({
-                variables: {
-                    ...userFormData
-                }
-            })
+    //         const { data } = await signUp({
+    //             variables: {
+    //                 ...userFormData
+    //             }
+    //         })
 
-            Auth.login(data.addUser.token);
+    //         Auth.login(data.addUser.token);
 
-        } catch (err) {
-            console.error(err);
-            setShowAlert(true);
-        }
+    //     } catch (err) {
+    //         console.error(err);
+    //         setShowAlert(true);
+    //     }
 
-        setUserFormData({
-            username: '',
-            email: '',
-            password: '',
-        });
-    };
+    //     setUserFormData({
+    //         username: '',
+    //         email: '',
+    //         password: '',
+    //     });
+    // };
 
     return (
         <>
             <div className='form' id="signUpForm">
                 <h1> Hello World </h1>
+                <h2> Sign-Up Page </h2>
             </div>
         </>
     )
