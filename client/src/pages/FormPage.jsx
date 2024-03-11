@@ -12,10 +12,11 @@ const FormPage = () => {
     const [activeForm, setActiveForm] = useState(false)
 
     const switchActiveForm = () => {
-        if (activeForm === true) {
+        if (activeForm == true) {
             setActiveForm(false)
-        }
+        } else {
         setActiveForm(true)
+        }
     }
 
     return (
