@@ -13,32 +13,32 @@ const LoginForm = () => {
 
     const [ login, {error} ] = useMutation(LOGIN);
 
-    // const handleInputChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setUserFormData({ ...userFormData, [name]: value})
-    // }
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setUserFormData({ ...userFormData, [name]: value})
+    }
 
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
-    //     try{
-    //         const {data} = await login({
-    //             variables: {
-    //                 ...userFormData
-    //             }
-    //         })
-    //         Auth.login(data.login.token);
-    //     } catch (err) {
-    //         console.error(err);
-    //         setShowAlert(true);
-    //     }
+        try{
+            const {data} = await login({
+                variables: {
+                    ...userFormData
+                }
+            })
+            Auth.login(data.login.token);
+        } catch (err) {
+            console.error(err);
+            setShowAlert(true);
+        }
 
-    //     setUserFormData({
-    //         username: '',
-    //         email: '',
-    //         password: '',
-    //     })
-    // };
+        setUserFormData({
+            username: '',
+            email: '',
+            password: '',
+        })
+    };
 
     return(
         <>

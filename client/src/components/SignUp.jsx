@@ -14,36 +14,36 @@ const SignupForm = () => {
 
     const [signUp, { error }] = useMutation(SIGNUP);
 
-    // const handleInputChange = (event) => {
-    //     // it is my interpretation that the "name" referenced here is referencing the "name" attribute given on the "target (the html element)"
-    //     const { name, value } = event.target;
-    //     setUserFormData({ ...userFormData, [name]: value });
-    // };
+    const handleInputChange = (event) => {
+        // it is my interpretation that the "name" referenced here is referencing the "name" attribute given on the "target (the html element)"
+        const { name, value } = event.target;
+        setUserFormData({ ...userFormData, [name]: value });
+    };
 
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
-    //     try {
+        try {
 
-    //         const { data } = await signUp({
-    //             variables: {
-    //                 ...userFormData
-    //             }
-    //         })
+            const { data } = await signUp({
+                variables: {
+                    ...userFormData
+                }
+            })
 
-    //         Auth.login(data.addUser.token);
+            Auth.login(data.addUser.token);
 
-    //     } catch (err) {
-    //         console.error(err);
-    //         setShowAlert(true);
-    //     }
+        } catch (err) {
+            console.error(err);
+            setShowAlert(true);
+        }
 
-    //     setUserFormData({
-    //         username: '',
-    //         email: '',
-    //         password: '',
-    //     });
-    // };
+        setUserFormData({
+            username: '',
+            email: '',
+            password: '',
+        });
+    };
 
     return (
         <>
