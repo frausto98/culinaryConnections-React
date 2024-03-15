@@ -99,11 +99,11 @@ const FormPage = () => {
             </div>
             <div className="formSubmitt">
                 <button className="button formBtn" onClick={handleFormSubmit}>Submit Form</button>
-                {/* {error && (
+                {error && (
                     <div className="col-12 my-3 bg-danger text-white p-3">
                         Something went wrong...
                     </div>
-                )} */}
+                )}
             </div>
         </div>
 
