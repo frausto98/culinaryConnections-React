@@ -44,8 +44,17 @@ const LoginForm = () => {
         <>
             
             <div className='form' id="loginForm">
-                <h1> Hello World </h1>
-                <h2> Login Page this is working!!</h2>
+                <div className="formHeader">
+                    <h1> Login Below </h1>
+                </div>
+                <div className="formInputs">
+                    <form>
+                        <label>
+                            Email:
+                            {/* <input>Enter Email Here</input> */}
+                        </label>
+                    </form>
+                </div>
             </div>
         </>
     );

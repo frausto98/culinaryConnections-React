@@ -1,12 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Auth from '../utils/auth';
-import { useMutation } from '@apollo/client';
-
-import { SIGNUP } from '../utils/mutations';
-import { LOGIN } from '../utils/mutations';
-
 import SignupForm from '../components/SignUp';
 import LoginForm from '../components/Login'
 
@@ -24,6 +18,10 @@ const FormPage = () => {
             setActiveForm(signUpInfo)
         }
     }
+
+    //--------------------------
+    // will keep the commented code below - was a cool concept, may try it again on a later proj
+    //--------------------------
 
     // const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
 
@@ -90,24 +88,13 @@ const FormPage = () => {
             <div className="formBody">
                 {activeForm ? (
                     <>
-                    <input ></input>
-                    <span>something wrong with the signupForm component</span>
                     <SignupForm/>
                     </>
                 ) : (
                     <>
-                    <span>something wrong with the loginForm component</span>
                     <LoginForm/>
                     </>
                 )}
-            </div>
-            <div className="formSubmitt">
-                <button className="button formBtn" >Submit Form</button>
-                {/* {error && (
-                    <div className="col-12 my-3 bg-danger text-white p-3">
-                        Something went wrong...
-                    </div>
-                )} */}
             </div>
         </div>
 
