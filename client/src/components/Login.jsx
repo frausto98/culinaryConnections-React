@@ -45,15 +45,38 @@ const LoginForm = () => {
 
             <div className='form' id="loginForm">
                 <div className="formHeader">
-                    <h1> Login Below </h1>
+                    
                 </div>
                 <div className="formInputs">
                     <form>
                         <fieldset>
                             <legend>Login</legend>
                             <div>
+                                <label htmlFor="username">Username: </label>
+                                <input 
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                value={userFormData.username}
+                                onChange={handleInputChange}/>
+                            </div>
+                            <div>
                                 <label htmlFor="email">Email: </label>
-                                <input type="email" name="email" id="email" />
+                                <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                value={userFormData.email}
+                                onChange={handleInputChange}/>
+                            </div>
+                            <div>
+                                <label htmlFor="password">Password: </label>
+                                <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                value={userFormData.password}
+                                onChange={handleInputChange}/>
                             </div>
                         </fieldset>
                     </form>
