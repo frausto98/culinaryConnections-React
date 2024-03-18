@@ -1,28 +1,28 @@
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import {LOGIN} from '../utils/mutations';
+import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
-    
 
-    const [ userFormData, setUserFormData ] = useState({username: '', email: '', password: '' });
+
+    const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
     // const [ validated ] = useState(false);
     // const [ showAlert, setShowAlert ] = useState(false);
 
-    const [ login, {error} ] = useMutation(LOGIN);
+    const [login, { error }] = useMutation(LOGIN);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value})
+        setUserFormData({ ...userFormData, [name]: value })
     }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        try{
-            const {data} = await login({
+        try {
+            const { data } = await login({
                 variables: {
                     ...userFormData
                 }
@@ -40,19 +40,22 @@ const LoginForm = () => {
         })
     };
 
-    return(
+    return (
         <>
-            
+
             <div className='form' id="loginForm">
                 <div className="formHeader">
                     <h1> Login Below </h1>
                 </div>
                 <div className="formInputs">
                     <form>
-                        <label>
-                            Email:
-                            {/* <input>Enter Email Here</input> */}
-                        </label>
+                        <fieldset>
+                            <legend>Login</legend>
+                            <div>
+                                <label htmlFor="email">Email: </label>
+                                <input type="email" name="email" id="email" />
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
             </div>
