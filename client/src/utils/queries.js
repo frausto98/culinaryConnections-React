@@ -76,6 +76,30 @@ query recipe($recipeId: ID!) {
   }
 `
 
+export const USERS = gql`
+query user {
+    user {
+      _id
+      email
+      username
+      firstName
+      lastName
+      recipes {
+        _id
+        ingredientCount
+        ingredients
+        stepCount
+        steps
+        recipeName
+        recipeDescription
+        recipeDifficulty
+        recipeAuthor
+        createdAt
+      }
+    }
+  }
+`
+
 export const RECIPES = gql`
 query recipe {
     recipe {

@@ -17,10 +17,17 @@ const Home = () => {
             <div className="homeBody">
                 {Auth.loggedIn() ? (
                     <>
-                        <p>
-                            It looks like you may be logged in, already!
-                            Please click below to continue.
-                        </p>
+                        <div>
+                            <p>
+                                It looks like you may be logged in, already!
+                                Please click below to continue.
+                            </p>
+                        </div>
+                        <div>
+                            <Link className='linkBtn' to='/home'>
+                                Home
+                            </Link>
+                        </div>
                     </>
                 ) : (
                     <>

@@ -5,10 +5,7 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
-
-
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-    // const [ validated ] = useState(false);
     // const [ showAlert, setShowAlert ] = useState(false);
 
     const [login, { error }] = useMutation(LOGIN);
@@ -30,7 +27,7 @@ const LoginForm = () => {
             Auth.login(data.login.token);
         } catch (err) {
             console.error(err);
-            setShowAlert(true);
+            //setShowAlert(true)
         }
 
         setUserFormData({
@@ -42,13 +39,12 @@ const LoginForm = () => {
 
     return (
         <>
-
             <div className='form' id="loginForm">
                 <div className="formHeader">
                     
                 </div>
                 <div className="formInputs">
-                    <form>
+                    <form onSubmit={handleFormSubmit}>
                         <fieldset>
                             <legend>Login</legend>
                             <div>
@@ -57,8 +53,10 @@ const LoginForm = () => {
                                 type="text" 
                                 name="username" 
                                 id="username" 
+                                placeholder='username'
                                 value={userFormData.username}
-                                onChange={handleInputChange}/>
+                                onChange={handleInputChange}
+                                required/>
                             </div>
                             <div>
                                 <label htmlFor="email">Email: </label>
@@ -66,8 +64,10 @@ const LoginForm = () => {
                                 type="email" 
                                 name="email" 
                                 id="email" 
+                                placeholder='email'
                                 value={userFormData.email}
-                                onChange={handleInputChange}/>
+                                onChange={handleInputChange}
+                                required/>
                             </div>
                             <div>
                                 <label htmlFor="password">Password: </label>
@@ -75,9 +75,18 @@ const LoginForm = () => {
                                 type="password" 
                                 name="password" 
                                 id="password" 
+                                placeholder='password'
                                 value={userFormData.password}
-                                onChange={handleInputChange}/>
+                                onChange={handleInputChange}
+                                required/>
                             </div>
+                            <>
+                                <button 
+                                type='submit' 
+                                disabled={!(userFormData.username && userFormData.email && userFormData.password)}>
+                                    Submit
+                                </button>
+                            </>
                         </fieldset>
                     </form>
                 </div>

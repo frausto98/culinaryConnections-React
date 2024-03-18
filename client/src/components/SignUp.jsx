@@ -7,8 +7,6 @@ import Auth from '../utils/auth';
 const SignupForm = () => {
     // set initial form state
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-    // // set state for form validation
-    // const [validated] = useState(false);
     // // set state for alert
     // const [showAlert, setShowAlert] = useState(false);
 
@@ -24,18 +22,15 @@ const SignupForm = () => {
         event.preventDefault();
 
         try {
-
             const { data } = await signUp({
                 variables: {
                     ...userFormData
                 }
             })
-
             Auth.login(data.addUser.token);
-
         } catch (err) {
             console.error(err);
-            setShowAlert(true);
+            //setShowAlert(true);
         }
 
         setUserFormData({
@@ -48,8 +43,56 @@ const SignupForm = () => {
     return (
         <>
             <div className='form' id="signUpForm">
-                <h1> Hello World </h1>
-                <h2> Sign-Up Page </h2>
+                <div className="formHeader">
+                    
+                </div>
+                <div className="formInputs">
+                    <form onSubmit={handleFormSubmit}>
+                        <fieldset>
+                            <legend>Sign Up</legend>
+                            <div>
+                                <label htmlFor="username">Username: </label>
+                                <input 
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                placeholder='username'
+                                value={userFormData.username}
+                                onChange={handleInputChange}
+                                required/>
+                            </div>
+                            <div>
+                                <label htmlFor="email">Email: </label>
+                                <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                placeholder='email'
+                                value={userFormData.email}
+                                onChange={handleInputChange}
+                                required/>
+                            </div>
+                            <div>
+                                <label htmlFor="password">Password: </label>
+                                <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                placeholder='password'
+                                value={userFormData.password}
+                                onChange={handleInputChange}
+                                required/>
+                            </div>
+                            <>
+                                <button 
+                                type='submit' 
+                                disabled={!(userFormData.username && userFormData.email && userFormData.password)}>
+                                    Submit
+                                </button>
+                            </>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </>
     )
