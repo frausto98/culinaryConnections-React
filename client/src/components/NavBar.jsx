@@ -5,9 +5,9 @@ const NavBar = () => {
         <div id="navBarComp">
             {Auth.loggedIn() ? (
                 <>
-                    <h1>
-                        If I'm logged in, i can see this.
-                    </h1>
+                    <button onClick={Auth.logout}>
+                        Logout
+                    </button>
                 </>
             ) : (
                 <>

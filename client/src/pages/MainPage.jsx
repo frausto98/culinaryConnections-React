@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 
+import { useQuery } from '@apollo/client';
+import { RECIPES } from '../utils/queries';
+
 const MainPage = () => {
+
+    const {loading, data} = useQuery(RECIPES);
 
     return (
         <div id="mainPage">
@@ -28,7 +33,11 @@ const MainPage = () => {
                     </>
                 ) : (
                     <>
-                        <h1>YOU SHOULD NOT BE HERE</h1>
+                        <Link className='linkBtn' to='/login-signup'>
+                            <span>
+                                Click here to be navigated to the Sign-Up/Login Form!
+                            </span>
+                        </Link>
                     </>
                 )}
 
