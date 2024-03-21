@@ -6,9 +6,13 @@ import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { RECIPES } from '../utils/queries';
 
+import RecipeList from '../components/RecipeList';
+
 const MainPage = () => {
 
-    const {loading, data} = useQuery(RECIPES);
+    const { loading, data } = useQuery(RECIPES);
+
+    const recipes = data?.recipes || [];
 
     return (
         <div id="mainPage">
@@ -18,29 +22,13 @@ const MainPage = () => {
                 </h1>
             </div>
             <div className="mainBody">
-                {Auth.loggedIn() ? (
-                    <>
-                        <div>
-                            <p>
-                                Please click below to logout.
-                            </p>
-                        </div>
-                        <div>
-                            <button onClick={Auth.logout}>
-                                Logout
-                            </button>
-                        </div>
-                    </>
+                {loading ? (
+                    <div> loading... </div>
                 ) : (
-                    <>
-                        <Link className='linkBtn' to='/login-signup'>
-                            <span>
-                                Click here to be navigated to the Sign-Up/Login Form!
-                            </span>
-                        </Link>
-                    </>
+                    <RecipeList
+                    recipes = {recipes}
+                    />
                 )}
-
             </div>
         </div>
 
