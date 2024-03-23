@@ -23,6 +23,9 @@ const MainPage = () => {
             </div>
             {Auth.loggedIn() ? (
                 <div className="mainBody">
+                    <div>
+                        <h3> Your Feed for Food </h3>
+                    </div>
                     {loading ? (
                         <div> loading... </div>
                     ) : (
