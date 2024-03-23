@@ -1,4 +1,4 @@
-const RecipeList = ({recipes}) => {
+const RecipeList = ({ recipes }) => {
     if (!recipes.length) {
         return <span> No Recipes... </span>
     }
@@ -10,19 +10,25 @@ const RecipeList = ({recipes}) => {
             </div>
             <div>
                 {recipes &&
-                recipes.map((recipe) => (
-                    <div key={recipe._id} className="recipe">
-                        <h5 className="recipeHeader">
-                            {recipe.recipeAuthor} <br/>
-                            <span>
-                                Cooked this post on {recipe.createdAt}
-                            </span>
-                        </h5>
-                        <div>
-                            <p>{recipe.recipeDescription}</p>
+                    recipes.map((recipe) => (
+                        <div key={recipe._id} className="recipe">
+                            <div className="recipeHeader">
+                                <h5>
+                                    {recipe.recipeAuthor} <br />
+                                    <span>
+                                        Cooked this post on {recipe.createdAt}
+                                    </span>
+                                </h5>
+                            </div>
+                            <div>
+                                <p>{recipe.recipeDescription}</p>
+                            </div>
+                            <div>
+                                <p> Number of Ingredients: {recipe.ingredientCount} </p>
+                                <p> {recipe.ingredients} </p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         </>
     );
