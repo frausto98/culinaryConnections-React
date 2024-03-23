@@ -101,8 +101,8 @@ query user {
 `
 
 export const RECIPES = gql`
-query recipe {
-    recipe {
+query recipes {
+    recipes {
       _id
       recipeName
       ingredientCount

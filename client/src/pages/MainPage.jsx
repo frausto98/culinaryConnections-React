@@ -21,15 +21,26 @@ const MainPage = () => {
                     Home Page
                 </h1>
             </div>
-            <div className="mainBody">
-                {loading ? (
-                    <div> loading... </div>
-                ) : (
-                    <RecipeList
-                    recipes = {recipes}
-                    />
-                )}
-            </div>
+            {Auth.loggedIn() ? (
+                <div className="mainBody">
+                    {loading ? (
+                        <div> loading... </div>
+                    ) : (
+                        <RecipeList
+                            recipes={recipes}
+                        />
+                    )}
+                </div>
+            ) : (
+                <>
+                    <Link className='linkBtn' to='/login-signup'>
+                        <span>
+                            Click here to be navigated to the Sign-Up/Login Form!
+                        </span>
+                    </Link>
+                </>
+            )}
+
         </div>
 
     )

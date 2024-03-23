@@ -11,7 +11,7 @@ const resolvers = {
         user: async (parent, {username}) => {
             return User.findOne({username}).populate('recipes');
         },
-        recipes: async (parent, {username}) => {
+        recipes: async () => {
             return Recipe.find().sort({createdAt: -1});
         },
         recipe: async (parent, {recipeId}) => {
