@@ -9,7 +9,7 @@ const RecipeDetails = () => {
     // Its values match the current URL value in those parameter locations
     // we will take the value and put into the object for us to manipulate
     // recipeId object comes from the main.jsx page that has the matching "path"
-    const {recipeId} = useParams();
+    const { recipeId } = useParams();
 
     const { loading, data } = useQuery(SINGLE_RECIPE, {
         // useQuery Hooks take a second arg, which is necessary to request a specific recipe.
@@ -25,13 +25,24 @@ const RecipeDetails = () => {
 
     return (
         <>
-        <div>
             <div>
-                <h3>{recipe.recipeName}</h3>
-                <p>{recipe.recipeDescription}</p>
+                <div>
+                    <h3>{recipe.recipeName}</h3>
+                    <p>{recipe.recipeDescription}</p>
+                    <h4> IN MY OPINION - The difficulty is: {recipe.recipeDifficulty}</h4>
+                </div>
+                <div>
+                    <p> Number of Ingredients: {recipe.ingredientCount} </p>
+                    <p>{recipe.ingredients} </p>
+                </div>
+                <div>
+                    <p> Number of Steps: {recipe.stepCount} </p>
+                    <p> Steps to Cook: {recipe.steps}</p>
+                </div>
+                <div>
+                    <h3>{recipe.recipeAuthor} cooked this post on {recipe.createdAt}</h3>
+                </div>
             </div>
-            <div></div>
-        </div>
         </>
     )
 }

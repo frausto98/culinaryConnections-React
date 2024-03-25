@@ -31,14 +31,6 @@ const RecipeList = ({ recipes }) => {
                                     CLick to Get more Recipe Details!
                                 </Link>
                             </div>
-                            <div>
-                                <p> Number of Ingredients: {recipe.ingredientCount} </p>
-                                <p> {recipe.ingredients} </p>
-                            </div>
-                            <div>
-                                <p> Number of Steps: {recipe.stepCount} </p>
-                                <p> Steps to Cook: {recipe.steps}</p>
-                            </div>
                         </div>
                     ))}
             </div>
