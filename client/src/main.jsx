@@ -4,15 +4,17 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
+import ErrorPage from './pages/Error.jsx';
 import Home from './pages/home.jsx';
 import FormPage from './pages/FormPage.jsx';
 import MainPage from './pages/MainPage.jsx';
+import RecipeDetails from './pages/RecipeDetails.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         index: true,
@@ -26,9 +28,10 @@ const router = createBrowserRouter([
         path: '/home',
         element: <MainPage/>
       },
-      // {
-      //   path: '/Page3'
-      // },
+      {
+        path: '/recipes/:recipeId',
+        element: <RecipeDetails/>
+      },
     ],
   },
 ]);
