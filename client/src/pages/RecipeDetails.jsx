@@ -1,5 +1,5 @@
 // useParams gets the current params variable's value from the URL
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import { SINGLE_RECIPE } from "../utils/queries";
@@ -26,6 +26,9 @@ const RecipeDetails = () => {
     return (
         <>
             <div>
+                <div>
+                    <Link className="linkBtn" to='/home'>Back to Home</Link>
+                </div>
                 <div>
                     <h3>{recipe.recipeName}</h3>
                     <p>{recipe.recipeDescription}</p>

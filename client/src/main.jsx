@@ -9,6 +9,7 @@ import Home from './pages/home.jsx';
 import FormPage from './pages/FormPage.jsx';
 import MainPage from './pages/MainPage.jsx';
 import RecipeDetails from './pages/RecipeDetails.jsx';
+import RecipeForm from './pages/RecipeForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: '/recipes/:recipeId',
         element: <RecipeDetails/>
       },
+      {
+        path: '/recipe-form',
+        element: <RecipeForm/>
+      }
     ],
   },
 ]);

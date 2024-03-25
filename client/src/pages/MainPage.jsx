@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { RECIPES } from '../utils/queries';
+import { ADD_RECIPE } from '../utils/mutations';
 
 import RecipeList from '../components/RecipeList';
 
@@ -26,9 +27,12 @@ const MainPage = () => {
                     {loading ? (
                         <div> loading... </div>
                     ) : (
+                        <>
+                        <Link className='linkBtn' to='/recipe-form'>Post Your Recipe Here!</Link>
                         <RecipeList
                             recipes={recipes}
                         />
+                        </>
                     )}
                 </div>
             ) : (
