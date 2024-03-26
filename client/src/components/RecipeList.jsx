@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const RecipeList = ({ recipes }) => {
+const RecipeList = ({ recipes, styles }) => {
     if (!recipes.length) {
         return <span> No Recipes... </span>
     }
@@ -10,7 +10,7 @@ const RecipeList = ({ recipes }) => {
             <div>
                 {recipes &&
                     recipes.map((recipe) => (
-                        <div key={recipe._id} className="recipe">
+                        <div key={recipe._id} className="recipe" style={styles.recipeBox}>
                             <div>
                                 <h3> Your Feed for Food </h3>
                             </div>
