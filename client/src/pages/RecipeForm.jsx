@@ -27,7 +27,7 @@ const RecipeForm = () => {
                     <fieldset>
                         <legend>Recipe Basics</legend>
                         <label>
-                            recipe name:
+                            Recipe Name:
                             <input
                             type="text"
                             name="recipeName"
@@ -38,9 +38,19 @@ const RecipeForm = () => {
                             style={styles.input}
                             required/>
                         </label>
+                        <label>
+                            Recipe Difficulty:
+                            <input 
+                            type="number" max={10} min={0}
+                            name="recipeDifficulty"
+                            id="recipeDifficulty"
+                            //value
+                            //onChange
+                            required/>
+                        </label>
                         <br/>
                         <label>
-                            recipe description:
+                            Recipe Description:
                             <textarea
                             name="recipeDescription"
                             id="recipeDescription"
@@ -51,16 +61,57 @@ const RecipeForm = () => {
                             required>
                             </textarea>
                         </label>
-                        <br/>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Recipe Steps</legend>
                         <label>
-                            recipe difficulty:
+                            Step Count:
                             <input 
                             type="number" max={10} min={0}
-                            name="recipeDifficulty"
-                            id="recipeDifficulty"
+                            name="stepCount"
+                            id="stepCount"
                             //value
                             //onChange
                             required/>
+                        </label>
+                        <br/>
+                        <label>
+                            Steps:
+                            <textarea
+                            name="steps"
+                            id="steps"
+                            placeholder="Describe the steps the took..."
+                            //value
+                            //onChange
+                            style={styles.textArea}
+                            required>
+                            </textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Recipe Ingredients</legend>
+                        <label>
+                            Ingredient Count:
+                            <input 
+                            type="number" max={10} min={0}
+                            name="ingredientCount"
+                            id="ingredientCount"
+                            //value
+                            //onChange
+                            required/>
+                        </label>
+                        <br/>
+                        <label>
+                            Ingredients:
+                            <textarea
+                            name="ingredients"
+                            id="ingredients"
+                            placeholder="Please list out your ingredients..."
+                            //value
+                            //onChange
+                            style={styles.textArea}
+                            required>
+                            </textarea>
                         </label>
                     </fieldset>
                 </form>
