@@ -66,7 +66,10 @@ const RecipeForm = () => {
                 <h3>What did you cook up?</h3>
             </div>
             <div>
-                <form>
+                <Link className="linkBtn" to='/home'>Back to Home</Link>
+            </div>
+            <div>
+                <form onSubmit={handleFormSubmit}>
                     <fieldset>
                         <legend>Recipe Basics</legend>
                         <label>
@@ -76,8 +79,8 @@ const RecipeForm = () => {
                                 name="recipeName"
                                 id="recipeName"
                                 placeholder="Your recipe name is..."
-                                //value
-                                //onChange
+                                value={recipeFormData.recipeName}
+                                onChange={handleInputChange}
                                 style={styles.input}
                                 required />
                         </label>
@@ -87,8 +90,8 @@ const RecipeForm = () => {
                                 type="number" max={10} min={0}
                                 name="recipeDifficulty"
                                 id="recipeDifficulty"
-                                //value
-                                //onChange
+                                value={recipeFormData.recipeDifficulty}
+                                onChange={handleInputChange}
                                 required />
                         </label>
                         <br />
@@ -98,10 +101,10 @@ const RecipeForm = () => {
                                 name="recipeDescription"
                                 id="recipeDescription"
                                 placeholder="Please describe your recipe..."
-                                //value
-                                //onChange
+                                value={recipeFormData.recipeDescription}
+                                onChange={handleInputChange}
                                 style={styles.textArea}
-                                required>
+                                required >
                             </textarea>
                         </label>
                     </fieldset>
@@ -110,11 +113,11 @@ const RecipeForm = () => {
                         <label>
                             Step Count:
                             <input
-                                type="number" max={10} min={0}
+                                type="number" max={20} min={0}
                                 name="stepCount"
                                 id="stepCount"
-                                //value
-                                //onChange
+                                value={recipeFormData.stepCount}
+                                onChange={handleInputChange}
                                 required />
                         </label>
                         <br />
@@ -124,10 +127,10 @@ const RecipeForm = () => {
                                 name="steps"
                                 id="steps"
                                 placeholder="Describe the steps the took..."
-                                //value
-                                //onChange
+                                value={recipeFormData.steps}
+                                onChange={handleInputChange}
                                 style={styles.textArea}
-                                required>
+                                required >
                             </textarea>
                         </label>
                     </fieldset>
@@ -136,11 +139,11 @@ const RecipeForm = () => {
                         <label>
                             Ingredient Count:
                             <input
-                                type="number" max={10} min={0}
+                                type="number" max={40} min={0}
                                 name="ingredientCount"
                                 id="ingredientCount"
-                                //value
-                                //onChange
+                                value={recipeFormData.ingredientCount}
+                                onChange={handleInputChange}
                                 required />
                         </label>
                         <br />
@@ -150,18 +153,27 @@ const RecipeForm = () => {
                                 name="ingredients"
                                 id="ingredients"
                                 placeholder="Please list out your ingredients..."
-                                //value
-                                //onChange
+                                value={recipeFormData.ingredients}
+                                onChange={handleInputChange}
                                 style={styles.textArea}
-                                required>
+                                required >
                             </textarea>
                         </label>
                     </fieldset>
+                    <button
+                    type='submit'
+                    disabled={!(recipeFormData.recipeName &&
+                        recipeFormData.recipeDifficulty &&
+                        recipeFormData.recipeDescription &&
+                        recipeFormData.stepCount &&
+                        recipeFormData.steps &&
+                        recipeFormData.ingredientCount &&
+                        recipeFormData.ingredients)}>
+                        Post your Recipe
+                    </button>
                 </form>
             </div>
-            <div>
-                <Link className="linkBtn" to='/home'>Back to Home</Link>
-            </div>
+            
         </>
     )
 };
