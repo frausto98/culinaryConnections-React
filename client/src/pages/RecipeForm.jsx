@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_RECIPE } from "../utils/mutations";
 
-const styles ={
+const styles = {
     input: {
         height: "20px",
         width: "300px",
@@ -19,14 +19,46 @@ const styles ={
 const RecipeForm = () => {
     // set the form state upon load
     const [recipeFormData, setRecipeFormData] = useState({
-        recipeName: '', 
-        recipeDifficulty: '', 
+        recipeName: '',
+        recipeDifficulty: '',
         recipeDescription: '',
         stepCount: '',
         steps: '',
         ingredientCount: '',
         ingredients: '',
     })
+
+    const [addRecipe, { error }] = useMutation(ADD_RECIPE);
+
+    const handleInputChange = (event) => {
+        const {name, value} = event.target;
+        setRecipeFormData({...recipeFormData, [name]: value})
+    }
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const { data } = await addRecipe({
+                variables: {
+                    ...recipeFormData
+                }
+            })
+        } catch (err) {
+            console.log(err)
+            alert(err)
+        }
+
+        setRecipeFormData({
+            recipeName: '',
+            recipeDifficulty: '',
+            recipeDescription: '',
+            stepCount: '',
+            steps: '',
+            ingredientCount: '',
+            ingredients: '',
+        })
+    }
 
     return (
         <>
@@ -40,36 +72,36 @@ const RecipeForm = () => {
                         <label>
                             Recipe Name:
                             <input
-                            type="text"
-                            name="recipeName"
-                            id="recipeName"
-                            placeholder="Your recipe name is..."
-                            //value
-                            //onChange
-                            style={styles.input}
-                            required/>
+                                type="text"
+                                name="recipeName"
+                                id="recipeName"
+                                placeholder="Your recipe name is..."
+                                //value
+                                //onChange
+                                style={styles.input}
+                                required />
                         </label>
                         <label>
                             Recipe Difficulty:
-                            <input 
-                            type="number" max={10} min={0}
-                            name="recipeDifficulty"
-                            id="recipeDifficulty"
-                            //value
-                            //onChange
-                            required/>
+                            <input
+                                type="number" max={10} min={0}
+                                name="recipeDifficulty"
+                                id="recipeDifficulty"
+                                //value
+                                //onChange
+                                required />
                         </label>
-                        <br/>
+                        <br />
                         <label>
                             Recipe Description:
                             <textarea
-                            name="recipeDescription"
-                            id="recipeDescription"
-                            placeholder="Please describe your recipe..."
-                            //value
-                            //onChange
-                            style={styles.textArea}
-                            required>
+                                name="recipeDescription"
+                                id="recipeDescription"
+                                placeholder="Please describe your recipe..."
+                                //value
+                                //onChange
+                                style={styles.textArea}
+                                required>
                             </textarea>
                         </label>
                     </fieldset>
@@ -77,25 +109,25 @@ const RecipeForm = () => {
                         <legend>Recipe Steps</legend>
                         <label>
                             Step Count:
-                            <input 
-                            type="number" max={10} min={0}
-                            name="stepCount"
-                            id="stepCount"
-                            //value
-                            //onChange
-                            required/>
+                            <input
+                                type="number" max={10} min={0}
+                                name="stepCount"
+                                id="stepCount"
+                                //value
+                                //onChange
+                                required />
                         </label>
-                        <br/>
+                        <br />
                         <label>
                             Steps:
                             <textarea
-                            name="steps"
-                            id="steps"
-                            placeholder="Describe the steps the took..."
-                            //value
-                            //onChange
-                            style={styles.textArea}
-                            required>
+                                name="steps"
+                                id="steps"
+                                placeholder="Describe the steps the took..."
+                                //value
+                                //onChange
+                                style={styles.textArea}
+                                required>
                             </textarea>
                         </label>
                     </fieldset>
@@ -103,25 +135,25 @@ const RecipeForm = () => {
                         <legend>Recipe Ingredients</legend>
                         <label>
                             Ingredient Count:
-                            <input 
-                            type="number" max={10} min={0}
-                            name="ingredientCount"
-                            id="ingredientCount"
-                            //value
-                            //onChange
-                            required/>
+                            <input
+                                type="number" max={10} min={0}
+                                name="ingredientCount"
+                                id="ingredientCount"
+                                //value
+                                //onChange
+                                required />
                         </label>
-                        <br/>
+                        <br />
                         <label>
                             Ingredients:
                             <textarea
-                            name="ingredients"
-                            id="ingredients"
-                            placeholder="Please list out your ingredients..."
-                            //value
-                            //onChange
-                            style={styles.textArea}
-                            required>
+                                name="ingredients"
+                                id="ingredients"
+                                placeholder="Please list out your ingredients..."
+                                //value
+                                //onChange
+                                style={styles.textArea}
+                                required>
                             </textarea>
                         </label>
                     </fieldset>
