@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 
@@ -16,6 +17,16 @@ const styles ={
 }
 
 const RecipeForm = () => {
+    // set the form state upon load
+    const [recipeFormData, setRecipeFormData] = useState({
+        recipeName: '', 
+        recipeDifficulty: '', 
+        recipeDescription: '',
+        stepCount: '',
+        steps: '',
+        ingredientCount: '',
+        ingredients: '',
+    })
 
     return (
         <>
