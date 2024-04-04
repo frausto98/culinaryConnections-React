@@ -31,12 +31,20 @@ const RecipeForm = () => {
     const [addRecipe, { error }] = useMutation(ADD_RECIPE);
 
     const handleInputChange = (event) => {
-        const {name, value} = event.target;
-        setRecipeFormData({...recipeFormData, [name]: value})
+        const { name, value } = event.target;
+        setRecipeFormData({ ...recipeFormData, [name]: value })
     }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
+        const removeQuote = (value) => {
+            value.replace(/"/g, '')
+            return
+        }
+        removeQuote(recipeFormData.ingredientCount);
+        removeQuote(recipeFormData.stepCount);
+        removeQuote(recipeFormData.recipeDifficulty);
 
         try {
             const { data } = await addRecipe({
@@ -161,19 +169,19 @@ const RecipeForm = () => {
                         </label>
                     </fieldset>
                     <button
-                    type='submit'
-                    disabled={!(recipeFormData.recipeName &&
-                        recipeFormData.recipeDifficulty &&
-                        recipeFormData.recipeDescription &&
-                        recipeFormData.stepCount &&
-                        recipeFormData.steps &&
-                        recipeFormData.ingredientCount &&
-                        recipeFormData.ingredients)}>
+                        type='submit'
+                        disabled={!(recipeFormData.recipeName &&
+                            recipeFormData.recipeDifficulty &&
+                            recipeFormData.recipeDescription &&
+                            recipeFormData.stepCount &&
+                            recipeFormData.steps &&
+                            recipeFormData.ingredientCount &&
+                            recipeFormData.ingredients)}>
                         Post your Recipe
                     </button>
                 </form>
             </div>
-            
+
         </>
     )
 };
