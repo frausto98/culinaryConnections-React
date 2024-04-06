@@ -30,17 +30,17 @@ const MainPage = () => {
                 </h1>
             </div>
             {Auth.loggedIn() ? (
-                <div className="mainBody">
+                <div className="mainBody" >
                     {loading ? (
                         <div> loading... </div>
                     ) : (
-                        <>
+                        <div>
                         <Link className='linkBtn' to='/recipe-form'>Post Your Recipe Here!</Link>
                         <RecipeList
                             recipes={recipes}
-                            styles={styles}
+                            
                         />
-                        </>
+                        </div>
                     )}
                 </div>
             ) : (

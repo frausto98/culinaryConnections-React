@@ -28,6 +28,11 @@ const RecipeForm = () => {
         ingredients: '',
     })
 
+    // const removeQuote = (value) => {
+    //     value.replace(/"/g, '')
+    //     return
+    // }
+
     const [addRecipe, { error }] = useMutation(ADD_RECIPE);
 
     const handleInputChange = (event) => {
@@ -37,14 +42,6 @@ const RecipeForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
-        const removeQuote = (value) => {
-            value.replace(/"/g, '')
-            return
-        }
-        removeQuote(recipeFormData.ingredientCount);
-        removeQuote(recipeFormData.stepCount);
-        removeQuote(recipeFormData.recipeDifficulty);
 
         try {
             const { data } = await addRecipe({
@@ -66,6 +63,8 @@ const RecipeForm = () => {
             ingredientCount: '',
             ingredients: '',
         })
+
+        window.location.assign("/home")
     }
 
     return (

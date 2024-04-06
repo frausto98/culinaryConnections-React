@@ -28,7 +28,7 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
   }
 `
 export const ADD_RECIPE = gql`
-mutation addRecipe($ingredientCount: Int, $ingredients: String, $stepCount: Int, $steps: String, $recipeName: String, $recipeDescription: String, $recipeDifficulty: Float) {
+mutation addRecipe($ingredientCount: String, $ingredients: String, $stepCount: String, $steps: String, $recipeName: String, $recipeDescription: String, $recipeDifficulty: String) {
     addRecipe(ingredientCount: $ingredientCount, ingredients: $ingredients, stepCount: $stepCount, steps: $steps, recipeName: $recipeName, recipeDescription: $recipeDescription, recipeDifficulty: $recipeDifficulty) {
       _id
       ingredientCount

@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
 
-const RecipeList = ({ recipes, styles }) => {
+const styles = {
+    recipeBox: {
+        borderStyle: "dotted, dashed, solid, groove",
+        borderWidth: "2px",
+        borderColor: "white"
+    }
+}
+
+const RecipeList = ({ recipes,  }) => {
     if (!recipes.length) {
         return <span> No Recipes... </span>
     }
 
     return (
         <>
-            <div>
+            <div style={styles.recipeBox}>
                 {recipes &&
                     recipes.map((recipe) => (
-                        <div key={recipe._id} className="recipe" style={styles.recipeBox}>
+                        <div key={recipe._id} className="recipe">
                             <div>
                                 <h3> Your Feed for Food </h3>
                             </div>

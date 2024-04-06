@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat')
 
 const recipeSchema = new Schema({
     ingredientCount: {
-        type: Number,
+        type: String,
         required: true,
         max: 40,
 
@@ -13,7 +13,7 @@ const recipeSchema = new Schema({
         required: true,
     },
     stepCount: {
-        type: Number,
+        type: String,
         required: true,
     },
     steps: {
@@ -33,7 +33,7 @@ const recipeSchema = new Schema({
         required: true,
     },
     recipeDifficulty: {
-        type: Number,
+        type: String,
         min: 1,
         max: 10,
         required: true,
