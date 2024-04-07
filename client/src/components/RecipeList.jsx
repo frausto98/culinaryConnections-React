@@ -4,7 +4,17 @@ const styles = {
     recipeBox: {
         borderStyle: "dotted ",
         borderWidth: "2px",
-        borderColor: "red"
+        borderColor: "red",
+        background: "lightgrey",
+        color: "black",
+        marginTop: "15px",
+        marginBottom: "15px",
+        paddingTop: "15px",
+        paddingBottom:"15px"
+    },
+    recipeHeader: {
+        background: "grey",
+        
     }
 }
 
@@ -20,7 +30,7 @@ const RecipeList = ({ recipes,  }) => {
                     recipes.map((recipe) => (
                         <div key={recipe._id} className="recipe" style={styles.recipeBox}>
                             
-                            <div className="recipeHeader">
+                            <div className="recipeHeader" style={styles.recipeHeader}>
                                 <h4>
                                     {recipe.recipeAuthor} <br />
                                     <span>

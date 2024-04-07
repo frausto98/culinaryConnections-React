@@ -27,7 +27,9 @@ const RecipeDetails = () => {
         <>
             <div>
                 <div>
-                    <Link className="linkBtn" to='/home'>Back to Home</Link>
+                    <div>
+                        <Link className="linkBtn" to='/home'>Back to Home</Link>
+                    </div>
                 </div>
                 <div>
                     <h3>{recipe.recipeName}</h3>
