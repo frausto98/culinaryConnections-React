@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const styles = {
     recipeBox: {
-        borderStyle: "dotted, dashed, solid, groove",
+        borderStyle: "dotted ",
         borderWidth: "2px",
-        borderColor: "white"
+        borderColor: "red"
     }
 }
 
@@ -15,13 +15,11 @@ const RecipeList = ({ recipes,  }) => {
 
     return (
         <>
-            <div style={styles.recipeBox}>
+            <div>
                 {recipes &&
                     recipes.map((recipe) => (
-                        <div key={recipe._id} className="recipe">
-                            <div>
-                                <h3> Your Feed for Food </h3>
-                            </div>
+                        <div key={recipe._id} className="recipe" style={styles.recipeBox}>
+                            
                             <div className="recipeHeader">
                                 <h4>
                                     {recipe.recipeAuthor} <br />

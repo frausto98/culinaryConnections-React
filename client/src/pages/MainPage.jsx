@@ -35,11 +35,14 @@ const MainPage = () => {
                         <div> loading... </div>
                     ) : (
                         <div>
-                        <Link className='linkBtn' to='/recipe-form'>Post Your Recipe Here!</Link>
-                        <RecipeList
-                            recipes={recipes}
-                            
-                        />
+                            <div>
+                                <h3> Your Feed for Food </h3>
+                            </div>
+                            <Link className='linkBtn' to='/recipe-form'>Post Your Recipe Here!</Link>
+                            <RecipeList
+                                recipes={recipes}
+
+                            />
                         </div>
                     )}
                 </div>
