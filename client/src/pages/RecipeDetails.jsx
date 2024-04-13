@@ -68,7 +68,7 @@ const RecipeDetails = () => {
                     <p> Steps to Cook: {recipe.steps}</p>
                 </div>
                 <div>
-                <h3> <Link className="linkBtn" to={`/profiles/${userProf}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
+                <h3> <Link className="linkBtn" to={`/users/${userProf}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
                 </div>
             </div>
         </>

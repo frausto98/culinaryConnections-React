@@ -10,6 +10,7 @@ import FormPage from './pages/FormPage.jsx';
 import MainPage from './pages/MainPage.jsx';
 import RecipeDetails from './pages/RecipeDetails.jsx';
 import RecipeForm from './pages/RecipeForm.jsx';
+import Profile from './pages/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,15 @@ const router = createBrowserRouter([
       {
         path: '/recipe-form',
         element: <RecipeForm/>
-      }
+      },
+      {
+        path: '/users/:username',
+        element: <Profile/>
+      },
+      // {
+      //   path: '/me',
+      //   element: <Profile/>
+      // }
     ],
   },
 ]);
