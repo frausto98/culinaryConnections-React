@@ -10,7 +10,8 @@ const styles = {
         marginTop: "15px",
         marginBottom: "15px",
         paddingTop: "15px",
-        paddingBottom:"15px"
+        paddingBottom:"15px",
+        borderRadius: "15px"
     },
     recipeHeader: {
         background: "grey",

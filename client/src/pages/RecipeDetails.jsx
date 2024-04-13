@@ -4,6 +4,21 @@ import { useQuery } from "@apollo/client";
 
 import { SINGLE_RECIPE } from "../utils/queries";
 
+const styles = {
+    recipeInfo: {
+        borderStyle: "dotted ",
+        borderWidth: "2px",
+        borderColor: "red",
+        background: "lightgrey",
+        color: "black",
+        marginTop: "15px",
+        marginBottom: "15px",
+        paddingTop: "15px",
+        paddingBottom:"15px",
+        borderRadius: "15px"
+    }
+}
+
 const RecipeDetails = () => {
     // this hook will yield an object. The keys associated will match the parameters defined on each route. 
     // Its values match the current URL value in those parameter locations
@@ -25,7 +40,7 @@ const RecipeDetails = () => {
 
     return (
         <>
-            <div>
+            <div style={styles.recipeInfo}>
                 <div>
                     <div>
                         <Link className="linkBtn" to='/home'>Back to Home</Link>
