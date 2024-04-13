@@ -2,7 +2,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import { SINGLE_RECIPE } from "../utils/queries";
+import { SINGLE_RECIPE, SINGLE_USER } from "../utils/queries";
 
 const styles = {
     recipeInfo: {
@@ -60,7 +60,7 @@ const RecipeDetails = () => {
                     <p> Steps to Cook: {recipe.steps}</p>
                 </div>
                 <div>
-                    <h3>{recipe.recipeAuthor} cooked this post on {recipe.createdAt}</h3>
+                <h3> <Link className="linkBtn" to={`/profiles/${profile.username}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
                 </div>
             </div>
         </>
