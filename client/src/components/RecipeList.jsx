@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, } from "react-router-dom";
 
 const styles = {
     recipeBox: {
@@ -19,7 +19,7 @@ const styles = {
     }
 }
 
-const RecipeList = ({ recipes, username }) => {
+const RecipeList = ({ recipes, username, params }) => {
 
     const currentPage = useLocation().pathname;
 
@@ -42,10 +42,9 @@ const RecipeList = ({ recipes, username }) => {
 
                                 <div className="recipeHeader" style={styles.recipeHeader}>
                                     <h4>
-                                        {recipe.recipeAuthor} <br />
-                                        <span>
-                                            Cooked this post on {recipe.createdAt}
-                                        </span>
+                                        {recipe.recipeAuthor}
+                                        <br />
+                                        Cooked this post on {recipe.createdAt}
                                     </h4>
                                 </div>
                                 <div>
@@ -73,9 +72,15 @@ const RecipeList = ({ recipes, username }) => {
 
                         <div className="recipeHeader" style={styles.recipeHeader}>
                             <h4>
-                                <span>
-                                    Cooked this post on {recipe.createdAt}
-                                </span>
+                                {params ? (
+                                    <span>
+                                        {username}
+                                        <br/>
+                                        C
+                                    </span>
+                                ) : (
+                                    "You c"
+                                )}ooked this post on {recipe.createdAt}
                             </h4>
                         </div>
                         <div>

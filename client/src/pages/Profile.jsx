@@ -37,12 +37,14 @@ const Profile = () => {
         <>
             <div>
                 <h1> Welcome to {username ? `${userProf.username}'s` : "Your"} Profile! </h1>
+                <Link to="/home">Home</Link>
             </div>
             <div>
                 <div>
                     <RecipeList
                         recipes={userProf.recipes}
                         username={userProf.username}
+                        params={username}
                     />
                 </div>
             </div>

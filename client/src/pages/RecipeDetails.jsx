@@ -41,13 +41,11 @@ const RecipeDetails = () => {
     }
 
     return (
-        <>
+        <>  
+            <div>
+                <Link className="linkBtn" to='/home'>Back to Home</Link>
+            </div>
             <div style={styles.recipeInfo}>
-                <div>
-                    <div>
-                        <Link className="linkBtn" to='/home'>Back to Home</Link>
-                    </div>
-                </div>
                 <div>
                     <h3>{recipe.recipeName}</h3>
                     <p>{recipe.recipeDescription}</p>
