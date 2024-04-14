@@ -34,13 +34,7 @@ const RecipeDetails = () => {
 
     const recipe = data?.recipe || {}
 
-    const userName = data?.recipe.recipeAuthor
-
-    const user = useQuery(SINGLE_USER, {
-        variables: {username: userName}
-    })
-
-    const userProf = user.data?.user.username
+    const username = data?.recipe.recipeAuthor
 
     if (loading) {
         return <div>Loading...</div>
@@ -68,7 +62,7 @@ const RecipeDetails = () => {
                     <p> Steps to Cook: {recipe.steps}</p>
                 </div>
                 <div>
-                <h3> <Link className="linkBtn" to={`/users/${userProf}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
+                <h3> <Link className="linkBtn" to={`/users/${username}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
                 </div>
             </div>
         </>
