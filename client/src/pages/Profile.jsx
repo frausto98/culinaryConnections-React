@@ -42,6 +42,7 @@ const Profile = () => {
                 <div>
                     <RecipeList
                         recipes={userProf.recipes}
+                        username={userProf.username}
                     />
                 </div>
             </div>
