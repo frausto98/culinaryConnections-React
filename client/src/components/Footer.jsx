@@ -1,13 +1,28 @@
 import Auth from '../utils/auth'
 
+const styles = {
+    tempStyle: {
+        borderStyle: "dotted ",
+        borderWidth: "2px",
+        borderColor: "red",
+        background: "lightgrey",
+        color: "black",
+        marginTop: "15px",
+        marginBottom: "15px",
+        paddingTop: "15px",
+        paddingBottom: "15px",
+        borderRadius: "15px"
+    }
+}
+
 const Footer = () => {
     return (
-        <div id="footerComp">
+        <div id="footerComp" style={styles.tempStyle}>
             {Auth.loggedIn() ? (
                 <>
-                    <h1>
-                        If I'm logged in, i can see this.
-                    </h1>
+                    <div>
+                        <h1> This is my Footer </h1>
+                    </div>
                 </>
             ) : (
                 <>
