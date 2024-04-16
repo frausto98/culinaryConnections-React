@@ -64,55 +64,34 @@ const RecipeList = ({ recipes, username, params }) => {
                             <div>
                                 <h5>{recipe.recipeName}</h5>
                                 <p>{recipe.recipeDescription}</p>
+                                <p> Recipe Difficulty: {recipe.recipeDifficulty} </p>
+                            </div>
+                            {username ? (
+                                <>
+                                    <div>
+                                        <p> Number of ingredients: {recipe.ingredientCount} </p>
+                                        <p> {recipe.ingredients} </p>
+                                    </div>
+                                    <div>
+                                        <p> Number of Steps: {recipe.stepCount} </p>
+                                        <p> Steps to Cook: {recipe.steps} </p>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div>
+                                        <Link className="linkBtn" to={`/recipes/${recipe._id}`}>
+                                            CLick to Get more Recipe Details!
+                                        </Link>
+                                    </div>
+                                </>
+                            )}
 
-                            </div>
-                            <div>
-                                <Link className="linkBtn" to={`/recipes/${recipe._id}`}>
-                                    CLick to Get more Recipe Details!
-                                </Link>
-                            </div>
                         </div>
                     ))}
             </div>
         </>
     );
-
-    return (
-        <div>
-            {recipes &&
-                recipes.map((recipe) => (
-                    <div key={recipe._id} className="recipe" style={styles.recipeBox}>
-
-                        <div className="recipeHeader" style={styles.recipeHeader}>
-                            <h4>
-                                {params ? (
-                                    <span>
-                                        {username}
-                                        <br />
-                                        C
-                                    </span>
-                                ) : (
-                                    "You c"
-                                )}ooked this post on {recipe.createdAt}
-                            </h4>
-                        </div>
-                        <div>
-                            <h5> {recipe.recipeName} </h5>
-                            <p> {recipe.recipeDescription} </p>
-                            <p> Recipe Difficulty: {recipe.difficulty} </p>
-                        </div>
-                        <div>
-                            <p> Number of ingredients: {recipe.ingredientCount} </p>
-                            <p> {recipe.ingredients} </p>
-                        </div>
-                        <div>
-                            <p> Number of Steps: {recipe.stepCount} </p>
-                            <p> Steps to Cook: {recipe.steps} </p>
-                        </div>
-                    </div>
-                ))}
-        </div>
-    )
-};
+}
 
 export default RecipeList
