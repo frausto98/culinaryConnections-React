@@ -31,38 +31,51 @@ const RecipeList = ({ recipes, username, params }) => {
         return <span> No Recipes... </span>
     }
 
-    // if one is not 
-    if (!username) {
-        return (
-            <>
-                <div>
-                    {recipes &&
-                        recipes.map((recipe) => (
-                            <div key={recipe._id} className="recipe" style={styles.recipeBox}>
-
-                                <div className="recipeHeader" style={styles.recipeHeader}>
-                                    <h4>
-                                        {recipe.recipeAuthor}
-                                        <br />
-                                        Cooked this post on {recipe.createdAt}
-                                    </h4>
-                                </div>
-                                <div>
-                                    <h5>{recipe.recipeName}</h5>
-                                    <p>{recipe.recipeDescription}</p>
-
-                                </div>
-                                <div>
-                                    <Link className="linkBtn" to={`/recipes/${recipe._id}`}>
-                                        CLick to Get more Recipe Details!
-                                    </Link>
-                                </div>
+    // giong to attempt conditionals to condense the code
+    return (
+        <>
+            <div>
+                {recipes &&
+                    recipes.map((recipe) => (
+                        <div key={recipe._id} className="recipe" style={styles.recipeBox}>
+                            <div className="recipeHeader" style={styles.recipeHeader}>
+                                <h4>
+                                    {username ? (
+                                        <>
+                                            {params ? (
+                                                <span>
+                                                    {username}
+                                                    <br />
+                                                    C
+                                                </span>
+                                            ) : (
+                                                "You c"
+                                            )}ooked this post on {recipe.createdAt}
+                                        </>
+                                    ) : (
+                                        <>
+                                            {recipe.recipeAuthor}
+                                            <br />
+                                            Cooked this post on {recipe.createdAt}
+                                        </>
+                                    )}
+                                </h4>
                             </div>
-                        ))}
-                </div>
-            </>
-        );
-    }
+                            <div>
+                                <h5>{recipe.recipeName}</h5>
+                                <p>{recipe.recipeDescription}</p>
+
+                            </div>
+                            <div>
+                                <Link className="linkBtn" to={`/recipes/${recipe._id}`}>
+                                    CLick to Get more Recipe Details!
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+            </div>
+        </>
+    );
 
     return (
         <div>
@@ -75,7 +88,7 @@ const RecipeList = ({ recipes, username, params }) => {
                                 {params ? (
                                     <span>
                                         {username}
-                                        <br/>
+                                        <br />
                                         C
                                     </span>
                                 ) : (
@@ -84,17 +97,17 @@ const RecipeList = ({ recipes, username, params }) => {
                             </h4>
                         </div>
                         <div>
-                            <h5>{recipe.recipeName}</h5>
-                            <p>{recipe.recipeDescription}</p>
-                            <p>recipe difficulty: {recipe.difficulty}</p>
+                            <h5> {recipe.recipeName} </h5>
+                            <p> {recipe.recipeDescription} </p>
+                            <p> Recipe Difficulty: {recipe.difficulty} </p>
                         </div>
                         <div>
-                            <p>Number of Steps: {recipe.stepCount}</p>
-                            <p>{recipe.steps}</p>
+                            <p> Number of ingredients: {recipe.ingredientCount} </p>
+                            <p> {recipe.ingredients} </p>
                         </div>
                         <div>
-                            <p>Number of ingredients: {recipe.ingredientCount}</p>
-                            <p>{recipe.ingredients}</p>
+                            <p> Number of Steps: {recipe.stepCount} </p>
+                            <p> Steps to Cook: {recipe.steps} </p>
                         </div>
                     </div>
                 ))}

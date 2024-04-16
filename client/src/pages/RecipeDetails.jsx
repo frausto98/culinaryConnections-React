@@ -47,17 +47,17 @@ const RecipeDetails = () => {
             </div>
             <div style={styles.recipeInfo}>
                 <div>
-                    <h3>{recipe.recipeName}</h3>
-                    <p>{recipe.recipeDescription}</p>
-                    <h4> IN MY OPINION - The difficulty is: {recipe.recipeDifficulty}</h4>
+                    <h3> {recipe.recipeName} </h3>
+                    <p> {recipe.recipeDescription} </p>
+                    <h4> Recipe Difficulty: {recipe.recipeDifficulty} </h4>
                 </div>
                 <div>
                     <p> Number of Ingredients: {recipe.ingredientCount} </p>
-                    <p>{recipe.ingredients} </p>
+                    <p> {recipe.ingredients} </p>
                 </div>
                 <div>
                     <p> Number of Steps: {recipe.stepCount} </p>
-                    <p> Steps to Cook: {recipe.steps}</p>
+                    <p> Steps to Cook: {recipe.steps} </p>
                 </div>
                 <div>
                 <h3> <Link className="linkBtn" to={`/users/${username}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
