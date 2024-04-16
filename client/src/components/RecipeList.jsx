@@ -66,27 +66,11 @@ const RecipeList = ({ recipes, username, params }) => {
                                 <p>{recipe.recipeDescription}</p>
                                 <p> Recipe Difficulty: {recipe.recipeDifficulty} </p>
                             </div>
-                            {username ? (
-                                <>
-                                    <div>
-                                        <p> Number of ingredients: {recipe.ingredientCount} </p>
-                                        <p> {recipe.ingredients} </p>
-                                    </div>
-                                    <div>
-                                        <p> Number of Steps: {recipe.stepCount} </p>
-                                        <p> Steps to Cook: {recipe.steps} </p>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div>
-                                        <Link className="linkBtn" to={`/recipes/${recipe._id}`}>
-                                            CLick to Get more Recipe Details!
-                                        </Link>
-                                    </div>
-                                </>
-                            )}
-
+                            <div>
+                                <Link className="linkBtn" to={`/recipes/${recipe._id}`}>
+                                    CLick to Get more Recipe Details!
+                                </Link>
+                            </div>
                         </div>
                     ))}
             </div>

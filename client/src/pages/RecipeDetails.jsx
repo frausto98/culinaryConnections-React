@@ -1,8 +1,12 @@
 // useParams gets the current params variable's value from the URL
-import { Link, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { Link, useParams, Navigate } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/client";
 
-import { SINGLE_RECIPE, SINGLE_USER } from "../utils/queries";
+import { SINGLE_RECIPE, } from "../utils/queries";
+import { REMOVE_RECIPE } from "../utils/mutations";
+
+import Auth from "../utils/auth";
+import { removeDirectivesFromDocument } from "@apollo/client/utilities";
 
 const styles = {
     recipeInfo: {
@@ -14,7 +18,7 @@ const styles = {
         marginTop: "15px",
         marginBottom: "15px",
         paddingTop: "15px",
-        paddingBottom:"15px",
+        paddingBottom: "15px",
         borderRadius: "15px"
     }
 }
@@ -36,12 +40,33 @@ const RecipeDetails = () => {
 
     const username = data?.recipe.recipeAuthor
 
+    const authUser = Auth.loggedIn() && Auth.getProfile().data.username === username;
+
+    // code for removing recipe
+
+    const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE, {
+        variables: { recipeId: recipeId }
+    })
+
+    const removeRefresh = async () => {
+        try {
+            await removeRecipe;
+            return <Navigate to="/home" />
+        } catch (err) {
+            console.log(err)
+            alert(err)
+        }
+
+    }
+
+    // ************************
+
     if (loading) {
         return <div>Loading...</div>
     }
 
     return (
-        <>  
+        <>
             <div>
                 <Link className="linkBtn" to='/home'>Back to Home</Link>
             </div>
@@ -60,7 +85,19 @@ const RecipeDetails = () => {
                     <p> Steps to Cook: {recipe.steps} </p>
                 </div>
                 <div>
-                <h3> <Link className="linkBtn" to={`/users/${username}`}> {recipe.recipeAuthor} </Link> cooked this post on {recipe.createdAt}</h3>
+                    <h3>
+                        <Link className="linkBtn" to={`/users/${username}`}>
+                            {recipe.recipeAuthor}
+                        </Link> cooked this post on {recipe.createdAt}
+                    </h3>
+                    {authUser ? (
+                        <>
+                            <button onClick={removeRefresh}>Delete Your Post</button>
+                        </>
+                    ) : (
+                        <>
+                        </>
+                    )}
                 </div>
             </div>
         </>
