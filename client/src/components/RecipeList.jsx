@@ -69,7 +69,8 @@ const RecipeList = ({ recipes, username, params }) => {
                                 </Link>
                             </div>
                         </div>
-                    ))}
+                    ))
+                }
             </div>
         </>
     );
