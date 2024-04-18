@@ -6,7 +6,6 @@ import { SINGLE_RECIPE, } from "../utils/queries";
 import { REMOVE_RECIPE } from "../utils/mutations";
 
 import Auth from "../utils/auth";
-import { removeDirectivesFromDocument } from "@apollo/client/utilities";
 
 const styles = {
     recipeInfo: {
@@ -44,14 +43,16 @@ const RecipeDetails = () => {
 
     // code for removing recipe
 
-    const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE, {
-        variables: { recipeId: recipeId }
-    })
+    const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE)
 
     const removeRefresh = async () => {
         try {
-            await removeRecipe;
-            return <Navigate to="/home" />
+            await removeRecipe({
+                variables : {
+                    recipeId: recipeId
+                }
+            });
+            window.location.assign('/home')
         } catch (err) {
             console.log(err)
             alert(err)
