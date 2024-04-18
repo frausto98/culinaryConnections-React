@@ -1,9 +1,10 @@
 // useParams gets the current params variable's value from the URL
 import { Link, useParams, Navigate } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery, } from "@apollo/client";
+import { useState } from "react";
 
 import { SINGLE_RECIPE, } from "../utils/queries";
-import { REMOVE_RECIPE } from "../utils/mutations";
+import { REMOVE_RECIPE, ADD_COMMENT } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
@@ -23,6 +24,13 @@ const styles = {
 }
 
 const RecipeDetails = () => {
+
+    const [commentFormInput, setCommentFormInput] = useState ({
+        commentText: '',
+    })
+
+    const [ activeElement,  setActiveElement ] = useState(false)
+
     // this hook will yield an object. The keys associated will match the parameters defined on each route. 
     // Its values match the current URL value in those parameter locations
     // we will take the value and put into the object for us to manipulate
@@ -43,7 +51,7 @@ const RecipeDetails = () => {
 
     // code for removing recipe
 
-    const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE)
+    const [removeRecipe] = useMutation(REMOVE_RECIPE)
 
     const removeRefresh = async () => {
         try {
@@ -61,6 +69,27 @@ const RecipeDetails = () => {
     }
 
     // ************************
+    // add  comment
+    const  [addComment] = useMutation(ADD_COMMENT)
+
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setCommentFormInput({ ...commentFormInput, [name]: value })
+    }
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const {data} = await addComment({
+                variables: {
+                    ...commentFormInput
+                }
+            })
+        } catch (err) {
+            console.log(err)
+            alert(err)
+        }
+    }
 
     if (loading) {
         return <div>Loading...</div>
