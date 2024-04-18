@@ -8,6 +8,8 @@ import { REMOVE_RECIPE, ADD_COMMENT } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+import CommentList from "../components/CommentListForm";
+
 const styles = {
     recipeInfo: {
         borderStyle: "dotted ",
@@ -25,11 +27,11 @@ const styles = {
 
 const RecipeDetails = () => {
 
-    const [commentFormInput, setCommentFormInput] = useState ({
+    const [commentFormInput, setCommentFormInput] = useState({
         commentText: '',
     })
 
-    const [ activeElement,  setActiveElement ] = useState(false)
+    const [activeElement, setActiveElement] = useState(false)
 
     // this hook will yield an object. The keys associated will match the parameters defined on each route. 
     // Its values match the current URL value in those parameter locations
@@ -45,7 +47,9 @@ const RecipeDetails = () => {
 
     const recipe = data?.recipe || {}
 
-    const username = data?.recipe.recipeAuthor
+    const comments = recipe.comments
+
+    const username = recipe.recipeAuthor
 
     const authUser = Auth.loggedIn() && Auth.getProfile().data.username === username;
 
@@ -56,7 +60,7 @@ const RecipeDetails = () => {
     const removeRefresh = async () => {
         try {
             await removeRecipe({
-                variables : {
+                variables: {
                     recipeId: recipeId
                 }
             });
@@ -70,17 +74,17 @@ const RecipeDetails = () => {
 
     // ************************
     // add  comment
-    const  [addComment] = useMutation(ADD_COMMENT)
+    const [addComment] = useMutation(ADD_COMMENT)
 
     const handleInputChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setCommentFormInput({ ...commentFormInput, [name]: value })
     }
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const {data} = await addComment({
+            const { data } = await addComment({
                 variables: {
                     ...commentFormInput
                 }
@@ -128,6 +132,13 @@ const RecipeDetails = () => {
                         <>
                         </>
                     )}
+                </div>
+            </div>
+            <div style={styles.recipeInfo}>
+                <div>
+                    <CommentList
+                        //comments={comments}
+                    />
                 </div>
             </div>
         </>

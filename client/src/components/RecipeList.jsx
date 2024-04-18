@@ -1,4 +1,4 @@
-import { Link, useLocation, } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const styles = {
     recipeBox: {
@@ -20,9 +20,6 @@ const styles = {
 }
 
 const RecipeList = ({ recipes, username, params }) => {
-
-    const currentPage = useLocation().pathname;
-
 
     // i want the Link button to not be active when viewing component from the Profile element
     // i use the username prop that may or may not contain a username directly from the query data
