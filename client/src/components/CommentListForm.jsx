@@ -17,7 +17,7 @@ const styles = {
     }
 }
 
-const CommentList = (comments) => {
+const CommentList = (comments, recipeId) => {
 
     const [commentFormInput, setCommentFormInput] = useState({
         commentText: '',
@@ -38,7 +38,8 @@ const CommentList = (comments) => {
         try {
             const { data } = await addComment({
                 variables: {
-                    ...commentFormInput
+                    ...commentFormInput,
+                    recipeId: recipeId
                 }
             })
         } catch (err) {
@@ -47,24 +48,50 @@ const CommentList = (comments) => {
         }
     }
 
-    if (!comments.length) {
-        return <span> No Comments... </span>
-    }
-
     return (
         <>
-            {comments &&
-                comments.map((comment) => (
-                    <div key={comment._id} className="comment" style={styles.commentInfo}>
-                        <div className="commentHeader">
-                            {comment.commentAuthor} | {comment.createdAt}
-                        </div>
-                        <div className="commentBody">
-                            {comment.commentText}
-                        </div>
+            <div style={styles.commentInfo}>
+                {comments.length ? (
+                    <div>
+                        {comments &&
+                            comments.map((comment) => (
+                                <div key={comment._id} className="comment">
+                                    <div className="commentHeader">
+                                        {comment.commentAuthor} | {comment.createdAt}
+                                    </div>
+                                    <div className="commentBody">
+                                        {comment.commentText}
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
-                ))
-            }
+                ) : (
+                    <div style={styles.commentInfo}>
+                        <span> No Comments... </span>
+                    </div>
+                )}
+                <div>
+                    <form onSubmit={handleFormSubmit}>
+                        <label>
+                            Add  Comment:
+                            <input
+                                type="text"
+                                name="commentText"
+                                id="commentText"
+                                placeholder="Add Comment Here..."
+                                value={commentFormInput.commentText}
+                                onChange={handleInputChange}
+                                required />
+                        </label>
+                        <button
+                            type="submit"
+                            disabled={!(commentFormInput.commentText)}>
+                            Submit Comment
+                        </button>
+                    </form>
+                </div>
+            </div>
         </>
     )
 }

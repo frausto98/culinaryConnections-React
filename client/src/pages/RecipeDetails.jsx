@@ -110,6 +110,7 @@ const RecipeDetails = () => {
                 <div>
                     <CommentList
                         comments={comments}
+                        recipeId={recipeId}
                     />
                 </div>
             </div>
