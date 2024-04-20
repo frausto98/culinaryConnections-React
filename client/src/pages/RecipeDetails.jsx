@@ -36,6 +36,7 @@ const RecipeDetails = () => {
         // useQuery Hooks take a second arg, which is necessary to request a specific recipe.
         // the second arg is a variable object, with another child object containting the useParam value
         variables: { recipeId: recipeId },
+        pollInterval: 500
     })
 
     const recipe = data?.recipe || {}
@@ -110,7 +111,6 @@ const RecipeDetails = () => {
                 <div>
                     <CommentList
                         comments={comments}
-                        recipeId={recipeId}
                     />
                 </div>
             </div>

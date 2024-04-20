@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../utils/mutations";
+import { useParams } from "react-router-dom";
 
 const styles = {
     commentInfo: {
@@ -17,7 +18,9 @@ const styles = {
     }
 }
 
-const CommentList = (comments, recipeId) => {
+const CommentList = (comments) => {
+
+    const {recipeId} = useParams();
 
     const [commentFormInput, setCommentFormInput] = useState({
         commentText: '',
@@ -32,6 +35,7 @@ const CommentList = (comments, recipeId) => {
         const { name, value } = e.target;
         setCommentFormInput({ ...commentFormInput, [name]: value })
     }
+
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
@@ -42,6 +46,13 @@ const CommentList = (comments, recipeId) => {
                     recipeId: recipeId
                 }
             })
+
+            window.location.reload()
+
+            setCommentFormInput({
+                commentText: ''
+            })
+            
         } catch (err) {
             console.log(err)
             alert(err)
