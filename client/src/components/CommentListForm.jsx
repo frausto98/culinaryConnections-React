@@ -56,38 +56,38 @@ const CommentList = (comments) => {
         }
     }
 
-    if (!comments.length) {
-        return (
-            <>
-            <div style={styles.commentInfo}>
-                <div>
-                    <span> No Comments...  </span>
-                </div>
-                <div>
-                    <form onSubmit={handleFormSubmit}>
-                        <label>
-                            Add  Comment:
-                            <input
-                                type="text"
-                                name="commentText"
-                                id="commentText"
-                                placeholder="Add Comment Here..."
-                                value={commentFormInput.commentText}
-                                onChange={handleInputChange}
-                                required />
-                        </label>
-                        <button
-                            type="submit"
-                            disabled={!(commentFormInput.commentText)}>
-                            Submit Comment
-                        </button>
-                    </form>
-                </div>
-            </div>
+    // if (!comments.length) {
+    //     return (
+    //         <>
+    //         <div style={styles.commentInfo}>
+    //             <div>
+    //                 <span> No Comments...  </span>
+    //             </div>
+    //             <div>
+    //                 <form onSubmit={handleFormSubmit}>
+    //                     <label>
+    //                         Add  Comment:
+    //                         <input
+    //                             type="text"
+    //                             name="commentText"
+    //                             id="commentText"
+    //                             placeholder="Add Comment Here..."
+    //                             value={commentFormInput.commentText}
+    //                             onChange={handleInputChange}
+    //                             required />
+    //                     </label>
+    //                     <button
+    //                         type="submit"
+    //                         disabled={!(commentFormInput.commentText)}>
+    //                         Submit Comment
+    //                     </button>
+    //                 </form>
+    //             </div>
+    //         </div>
 
-            </>
-        )
-    }
+    //         </>
+    //     )
+    // }
 
     return (
         <>
