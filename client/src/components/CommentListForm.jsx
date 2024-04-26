@@ -18,7 +18,7 @@ const styles = {
     }
 }
 
-const CommentList = (comments) => {
+const CommentListForm = (comments) => {
 
     const { recipeId } = useParams();
 
@@ -131,4 +131,4 @@ const CommentList = (comments) => {
     )
 }
 
-export default CommentList
+export default CommentListForm
