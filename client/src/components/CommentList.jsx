@@ -2,6 +2,21 @@ import { useQuery } from "@apollo/client";
 import { SINGLE_RECIPE } from "../utils/queries";
 import { useParams } from "react-router-dom";
 
+const styles = {
+    commentInfo: {
+        borderStyle: "dotted ",
+        borderWidth: "2px",
+        borderColor: "red",
+        background: "white",
+        color: "black",
+        marginTop: "15px",
+        marginBottom: "15px",
+        paddingTop: "15px",
+        paddingBottom: "15px",
+        borderRadius: "15px"
+    }
+}
+
 const CommentList = () => {
 
     const { recipeId } = useParams();
@@ -16,7 +31,7 @@ const CommentList = () => {
     if (!comments.length) {
         return (
             <>
-                <div style={styles.commentInfo}>
+                <div>
                     <div>
                         <span> No Comments...  </span>
                     </div>

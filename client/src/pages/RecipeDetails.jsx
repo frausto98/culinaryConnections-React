@@ -7,10 +7,23 @@ import { REMOVE_RECIPE, } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-import CommentList from "../components/CommentListForm";
+import CommentList from "../components/CommentList";
+import CommentForm from "../components/CommentForm";
 
 const styles = {
     recipeInfo: {
+        borderStyle: "dotted ",
+        borderWidth: "2px",
+        borderColor: "red",
+        background: "lightgrey",
+        color: "black",
+        marginTop: "15px",
+        marginBottom: "15px",
+        paddingTop: "15px",
+        paddingBottom: "15px",
+        borderRadius: "15px"
+    },
+    commentInfo: {
         borderStyle: "dotted ",
         borderWidth: "2px",
         borderColor: "red",
@@ -108,10 +121,9 @@ const RecipeDetails = () => {
                 </div>
             </div>
             <div>
-                <div>
-                    <CommentList
-                        comments={comments}
-                    />
+                <div style={styles.commentInfo}>
+                    <CommentList/>
+                    <CommentForm/>
                 </div>
             </div>
         </>

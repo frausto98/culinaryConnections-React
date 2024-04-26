@@ -1,6 +1,22 @@
 import { useMutation } from "@apollo/client"
 import { ADD_COMMENT } from "../utils/mutations"
 import { useParams } from "react-router-dom"
+import { useState } from "react"
+
+const styles = {
+    commentInfo: {
+        borderStyle: "dotted ",
+        borderWidth: "2px",
+        borderColor: "red",
+        background: "white",
+        color: "black",
+        marginTop: "15px",
+        marginBottom: "15px",
+        paddingTop: "15px",
+        paddingBottom: "15px",
+        borderRadius: "15px"
+    }
+}
 
 const CommentForm = () => {
 
