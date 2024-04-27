@@ -144,6 +144,9 @@ const RecipeDetails = () => {
                 </div>
                 <div>
                     {/* code for like button */}
+                    <button
+                    onClick={leaveALike}> Like  </button> 
+                    <span> Likes: {likes.length}</span>
                 </div>
                 <div style={styles.commentInfo}>
                     <h3> Comment Section </h3>
