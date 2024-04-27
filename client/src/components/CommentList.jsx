@@ -42,11 +42,11 @@ const CommentList = () => {
 
     return (
         <>
-            <div style={styles.commentInfo}>
+            <div >
                 <div>
                     {comments &&
                         comments.map((comment) => (
-                            <div key={comment._id} className="comment">
+                            <div key={comment._id} className="comment" style={styles.commentInfo}>
                                 <div className="commentHeader">
                                     <h4>{comment.commentAuthor} | {comment.createdAt}</h4>
                                 </div>

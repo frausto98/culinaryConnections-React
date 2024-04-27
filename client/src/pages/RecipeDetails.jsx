@@ -87,10 +87,18 @@ const RecipeDetails = () => {
 
     return (
         <>
-            <div>
-                <Link className="linkBtn" to='/home'>Back to Home</Link>
-            </div>
             <div style={styles.recipeInfo}>
+                <div>
+                    <Link className="linkBtn" to='/home'>Back to Home</Link>
+                </div>
+                {authUser ? (
+                    <>
+                        <button onClick={removeRefresh}>Delete Your Post</button>
+                    </>
+                ) : (
+                    <>
+                    </>
+                )}
                 <div>
                     <h3> {recipe.recipeName} </h3>
                     <p> {recipe.recipeDescription} </p>
@@ -110,20 +118,14 @@ const RecipeDetails = () => {
                             {recipe.recipeAuthor}
                         </Link> cooked this post on {recipe.createdAt}
                     </h3>
-                    {authUser ? (
-                        <>
-                            <button onClick={removeRefresh}>Delete Your Post</button>
-                        </>
-                    ) : (
-                        <>
-                        </>
-                    )}
+
                 </div>
             </div>
             <div>
                 <div style={styles.commentInfo}>
-                    <CommentList/>
-                    <CommentForm/>
+                    <h3> Comment Section </h3>
+                    <CommentList />
+                    <CommentForm />
                 </div>
             </div>
         </>
