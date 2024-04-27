@@ -3,7 +3,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { useMutation, useQuery, } from "@apollo/client";
 
 import { SINGLE_RECIPE, } from "../utils/queries";
-import { REMOVE_RECIPE, } from "../utils/mutations";
+import { REMOVE_RECIPE, LEAVE_LIKE } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
@@ -54,9 +54,9 @@ const RecipeDetails = () => {
 
     const recipe = data?.recipe || {}
 
-    const comments = recipe.comments
-
     const username = recipe.recipeAuthor
+
+    const likes = recipe.likes
 
     const authUser = Auth.loggedIn() && Auth.getProfile().data.username === username;
 
@@ -68,7 +68,7 @@ const RecipeDetails = () => {
         try {
             await removeRecipe({
                 variables: {
-                    recipeId: recipeId
+                    recipeId: recipeId,
                 }
             });
             window.location.assign('/home')
@@ -77,6 +77,25 @@ const RecipeDetails = () => {
             alert(err)
         }
 
+    }
+
+    // ************************
+    // code for leaving a like
+
+    const [leave_Like] = useMutation(LEAVE_LIKE)
+
+    const leaveALike = async () => {
+        try {
+            await leave_Like({
+                variables: {
+                    recipeId: recipeId,
+                    like: true
+                }
+            })
+        } catch (err) {
+            console.log(err);
+            alert(err)
+        }
     }
 
     // ************************
@@ -124,7 +143,7 @@ const RecipeDetails = () => {
                     </div>
                 </div>
                 <div>
-                    {/* code for  */}
+                    {/* code for like button */}
                 </div>
                 <div style={styles.commentInfo}>
                     <h3> Comment Section </h3>
