@@ -22,8 +22,7 @@ const CommentList = () => {
     const { recipeId } = useParams();
 
     const { loading, data } = useQuery(SINGLE_RECIPE, {
-        variables: { recipeId: recipeId },
-        pollInterval: 500
+        variables: { recipeId: recipeId }
     })
 
     const comments = data?.recipe.comments

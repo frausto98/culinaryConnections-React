@@ -89,39 +89,43 @@ const RecipeDetails = () => {
         <>
             <div style={styles.recipeInfo}>
                 <div>
-                    <Link className="linkBtn" to='/home'>Back to Home</Link>
-                </div>
-                {authUser ? (
-                    <>
-                        <button onClick={removeRefresh}>Delete Your Post</button>
-                    </>
-                ) : (
-                    <>
-                    </>
-                )}
-                <div>
-                    <h3> {recipe.recipeName} </h3>
-                    <p> {recipe.recipeDescription} </p>
-                    <h4> Recipe Difficulty: {recipe.recipeDifficulty} </h4>
+                    <div>
+                        <Link className="linkBtn" to='/home'>Back to Home</Link>
+                    </div>
+                    {authUser ? (
+                        <>
+                            <button onClick={removeRefresh}>Delete Your Post</button>
+                        </>
+                    ) : (
+                        <>
+                        </>
+                    )}
                 </div>
                 <div>
-                    <p> Number of Ingredients: {recipe.ingredientCount} </p>
-                    <p> {recipe.ingredients} </p>
+                    <div>
+                        <h3> {recipe.recipeName} </h3>
+                        <p> {recipe.recipeDescription} </p>
+                        <h4> Recipe Difficulty: {recipe.recipeDifficulty} </h4>
+                    </div>
+                    <div>
+                        <p> Number of Ingredients: {recipe.ingredientCount} </p>
+                        <p> {recipe.ingredients} </p>
+                    </div>
+                    <div>
+                        <p> Number of Steps: {recipe.stepCount} </p>
+                        <p> Steps to Cook: {recipe.steps} </p>
+                    </div>
+                    <div>
+                        <h3>
+                            <Link className="linkBtn" to={`/users/${username}`}>
+                                {recipe.recipeAuthor}
+                            </Link> cooked this post on {recipe.createdAt}
+                        </h3>
+                    </div>
                 </div>
                 <div>
-                    <p> Number of Steps: {recipe.stepCount} </p>
-                    <p> Steps to Cook: {recipe.steps} </p>
+                    {/* code for  */}
                 </div>
-                <div>
-                    <h3>
-                        <Link className="linkBtn" to={`/users/${username}`}>
-                            {recipe.recipeAuthor}
-                        </Link> cooked this post on {recipe.createdAt}
-                    </h3>
-
-                </div>
-            </div>
-            <div>
                 <div style={styles.commentInfo}>
                     <h3> Comment Section </h3>
                     <CommentList />

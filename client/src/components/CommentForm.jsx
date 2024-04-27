@@ -62,6 +62,7 @@ const CommentForm = () => {
                 <form onSubmit={handleFormSubmit}>
                     <label>
                         Add  Comment:
+                        <br/>
                         <input
                             type="text"
                             name="commentText"
