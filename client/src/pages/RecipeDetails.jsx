@@ -57,8 +57,10 @@ const RecipeDetails = () => {
     const username = recipe.recipeAuthor
 
     const likes = recipe.likes
+    const likedUser = recipe.likes.likedBy
 
     const authUser = Auth.loggedIn() && Auth.getProfile().data.username === username;
+    const authLike = Auth.getProfile().data.username === likedUser
 
     // code for removing recipe
 
@@ -145,7 +147,8 @@ const RecipeDetails = () => {
                 <div>
                     {/* code for like button */}
                     <button
-                    onClick={leaveALike}> Like  </button> 
+                    onClick={leaveALike}
+                    disabled={authLike}> Like  </button> 
                     <span> Likes: {likes.length}</span>
                 </div>
                 <div style={styles.commentInfo}>
