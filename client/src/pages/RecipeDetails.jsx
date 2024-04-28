@@ -9,6 +9,7 @@ import Auth from "../utils/auth";
 
 import CommentList from "../components/CommentList";
 import CommentForm from "../components/CommentForm";
+import LikeButton from "../components/LikeButton";
 
 const styles = {
     recipeInfo: {
@@ -57,10 +58,8 @@ const RecipeDetails = () => {
     const username = recipe.recipeAuthor
 
     const likes = recipe.likes
-    const likedUser = recipe.likes.likedBy
 
     const authUser = Auth.loggedIn() && Auth.getProfile().data.username === username;
-    const authLike = Auth.getProfile().data.username === likedUser
 
     // code for removing recipe
 
@@ -79,25 +78,6 @@ const RecipeDetails = () => {
             alert(err)
         }
 
-    }
-
-    // ************************
-    // code for leaving a like
-
-    const [leave_Like] = useMutation(LEAVE_LIKE)
-
-    const leaveALike = async () => {
-        try {
-            await leave_Like({
-                variables: {
-                    recipeId: recipeId,
-                    like: true
-                }
-            })
-        } catch (err) {
-            console.log(err);
-            alert(err)
-        }
     }
 
     // ************************
@@ -146,9 +126,7 @@ const RecipeDetails = () => {
                 </div>
                 <div>
                     {/* code for like button */}
-                    <button
-                    onClick={leaveALike}
-                    disabled={authLike}> Like  </button> 
+                    <LikeButton/>
                     <span> Likes: {likes.length}</span>
                 </div>
                 <div style={styles.commentInfo}>

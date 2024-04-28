@@ -31,7 +31,7 @@ const CommentList = () => {
         return (
             <>
                 <div>
-                    <div>
+                    <div style={styles.commentInfo}>
                         <span> No Comments...  </span>
                     </div>
                 </div>
