@@ -29,10 +29,9 @@ const LikeButton = () => {
             await leave_Like({
                 variables: {
                     recipeId: recipeId,
-                    like: true
+                    like: false
                 }
             })
-            switchButtonStatus()
         } catch (err) {
             console.log(err);
             alert(err)
@@ -42,9 +41,10 @@ const LikeButton = () => {
     return (
         <>
             <div>
-                <button
-                onClick={leaveALike}
-                disabled={buttonStatus}> Like </button>
+                    <>
+                        <button
+                            onClick={leaveALike && switchButtonStatus}> Like </button>
+                    </>
             </div>
         </>
     )
