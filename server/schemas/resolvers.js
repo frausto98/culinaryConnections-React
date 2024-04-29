@@ -139,6 +139,23 @@ const resolvers = {
             }
             throw AuthenticationError
         },
+        removeLike: async ( parent, {recipeId, likeId}, context) => {
+            if(context.user) {
+                return Recipe.findOneAndUpdate(
+                    {_id: recipeId },
+                    {
+                        $pull: {
+                            comments: {
+                                _id: commentId,
+                                commentAuthor: context.user.username
+                            },
+                        },
+                    },
+                    {new: true}
+                );
+            }
+            throw AuthenticationError
+        },
         leaveARate: async ( parent, { recipeId, rate }, context) => {
             if (context.user) {
                 return Recipe.findOneAndUpdate(

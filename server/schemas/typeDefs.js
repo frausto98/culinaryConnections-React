@@ -65,6 +65,7 @@ type Mutation {
     removeRecipe(recipeId: ID!): Recipe
     removeComment(recipeId: ID!, commentId: ID!): Recipe
     leaveALike(recipeId: ID!, like: Boolean): Recipe
+    removeLike(recipeId: ID!, likeId: ID!): Recipe
     leaveARate(recipeId: ID!, rate: Float): Recipe
 }
 `;
