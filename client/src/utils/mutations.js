@@ -101,8 +101,8 @@ mutation removeRecipe($recipeId: ID!) {
 `
 
 export const REMOVE_COMMENT = gql`
-mutation removeComment($recipeId: ID!) {
-    removeComment(recipeId: $recipeId) {
+mutation removeComment($recipeId: ID!, $commentId: ID!) {
+    removeComment(recipeId: $recipeId, commentId: $commentId) {
       _id
       ingredientCount
       ingredients
@@ -154,6 +154,34 @@ mutation Mutation($recipeId: ID!, $like: Boolean) {
       }
     }
   }
+`
+
+export const REMOVE_LIKE = gql`
+mutation removeLike($recipeId: ID!, $likeId: ID!) {
+  removeLike(recipeId: $recipeId, likeId: $likeId) {
+    _id
+    ingredientCount
+    ingredients
+    stepCount
+    steps
+    recipeName
+    recipeDescription
+    recipeDifficulty
+    recipeAuthor
+    createdAt
+    comments {
+      _id
+      commentAuthor
+      commentText
+      createdAt
+    }
+    likes {
+      _id
+      like
+      likedBy
+    }
+  }
+}
 `
 
 // export const LEAVE_RATE = gql`
