@@ -101,8 +101,8 @@ mutation removeRecipe($recipeId: ID!) {
 `
 
 export const REMOVE_COMMENT = gql`
-mutation removeComment($recipeId: ID!) {
-    removeComment(recipeId: $recipeId) {
+mutation removeComment($recipeId: ID!, $commmentId: ID!) {
+    removeComment(recipeId: $recipeId, commentId: $commentId) {
       _id
       ingredientCount
       ingredients
