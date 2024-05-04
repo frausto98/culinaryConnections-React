@@ -2,7 +2,7 @@ import { useMutation, } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-import { LEAVE_LIKE } from "../utils/mutations";
+import { LEAVE_LIKE, REMOVE_LIKE } from "../utils/mutations";
 
 import Auth from "../utils/auth"
 
@@ -31,6 +31,22 @@ const LikeButton = () => {
                 variables: {
                     recipeId: recipeId,
                     like: true
+                }
+            })
+        } catch (err) {
+            console.log(err);
+            alert(err)
+        }
+    }
+
+    const [remove_Like] = useMutation(REMOVE_LIKE)
+
+    const removeALike = async () => {
+        try {
+            await remove_Like({
+                variables:{
+                    recipeId: recipeId,
+                    likedBy: Auth.getProfile().data.username
                 }
             })
         } catch (err) {
