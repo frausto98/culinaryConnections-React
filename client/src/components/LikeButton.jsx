@@ -8,15 +8,16 @@ import Auth from "../utils/auth"
 
 const LikeButton = () => {
 
-    const disabled = true
-    const abled = false
+    const like = true
+    const dislike = false
 
-    const [buttonStatus, setButtonStatus] = useState(abled)
+    const [buttonStatus, setButtonStatus] = useState(like)
+
     const switchButtonStatus = () => {
-        if (buttonStatus == abled) {
-            setButtonStatus(disabled)
+        if (buttonStatus == like) {
+            setButtonStatus(dislike)
         } else {
-            setButtonStatus(abled)
+            setButtonStatus(like)
         }
     }
 
@@ -29,7 +30,7 @@ const LikeButton = () => {
             await leave_Like({
                 variables: {
                     recipeId: recipeId,
-                    like: false
+                    like: true
                 }
             })
         } catch (err) {
@@ -41,10 +42,18 @@ const LikeButton = () => {
     return (
         <>
             <div>
+                {buttonStatus ? (
                     <>
                         <button
                             onClick={leaveALike && switchButtonStatus}> Like </button>
                     </>
+                ) : (
+                    <>
+                    {/* below set up code to have button remove the like */}
+                        <button>  </button>
+                    </>
+                )}
+                    
             </div>
         </>
     )

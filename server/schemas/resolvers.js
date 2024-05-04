@@ -145,9 +145,9 @@ const resolvers = {
                     {_id: recipeId },
                     {
                         $pull: {
-                            comments: {
-                                _id: commentId,
-                                commentAuthor: context.user.username
+                            likes: {
+                                _id: likeId,
+                                likedBy: context.user.username
                             },
                         },
                     },
