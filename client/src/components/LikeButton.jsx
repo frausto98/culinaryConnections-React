@@ -13,13 +13,13 @@ const LikeButton = () => {
 
     const [buttonStatus, setButtonStatus] = useState(like)
 
-    const switchButtonStatus = () => {
-        if (buttonStatus == like) {
-            setButtonStatus(dislike)
-        } else {
-            setButtonStatus(like)
-        }
-    }
+    // const switchButtonStatus = () => {
+    //     if (buttonStatus == like) {
+    //         setButtonStatus(dislike)
+    //     } else {
+    //         setButtonStatus(like)
+    //     }
+    // }
 
     const { recipeId } = useParams();
 
@@ -33,6 +33,9 @@ const LikeButton = () => {
                     like: true
                 }
             })
+
+            setButtonStatus(dislike)
+
         } catch (err) {
             console.log(err);
             alert(err)
@@ -49,6 +52,9 @@ const LikeButton = () => {
                     likedBy: Auth.getProfile().data.username
                 }
             })
+
+            setButtonStatus(like)
+
         } catch (err) {
             console.log(err);
             alert(err)
@@ -61,12 +67,13 @@ const LikeButton = () => {
                 {buttonStatus ? (
                     <>
                         <button
-                            onClick={leaveALike && switchButtonStatus}> Like </button>
+                            onClick={leaveALike}> Like </button>
                     </>
                 ) : (
                     <>
                     {/* below set up code to have button remove the like */}
-                        <button>  </button>
+                        <button
+                            onClick={removeALike}> Dislike </button>
                     </>
                 )}
                     
