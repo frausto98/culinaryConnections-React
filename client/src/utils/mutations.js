@@ -157,8 +157,8 @@ mutation Mutation($recipeId: ID!, $like: Boolean) {
 `
 
 export const REMOVE_LIKE = gql`
-mutation removeLike($recipeId: ID!, $likeId: ID!) {
-  removeLike(recipeId: $recipeId, likeId: $likeId) {
+mutation removeLike($recipeId: ID!) {
+  removeLike(recipeId: $recipeId) {
     _id
     ingredientCount
     ingredients
