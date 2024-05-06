@@ -1,6 +1,6 @@
 import { useMutation, } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { LEAVE_LIKE, REMOVE_LIKE } from "../utils/mutations";
 
@@ -12,6 +12,21 @@ const LikeButton = () => {
     const dislike = false
 
     const [buttonStatus, setButtonStatus] = useState(like)
+
+    useEffect(() => {
+        const btnStatus = localStorage.getItem('buttonStatus');
+    
+        // If the value is found in storage, convert the string to a number and update state
+        if (btnStatus) {
+          setButtonStatus(
+            parseInt(btnStatus)
+          )
+        }
+      },[])
+
+    useEffect(() => {
+        localStorage.setItem('buttonStatus', buttonStatus)
+    }, [buttonStatus]);
 
     // const switchButtonStatus = () => {
     //     if (buttonStatus == like) {
@@ -47,7 +62,7 @@ const LikeButton = () => {
     const removeALike = async () => {
         try {
             await remove_Like({
-                variables:{
+                variables: {
                     recipeId: recipeId,
                     likedBy: Auth.getProfile().data.username
                 }
@@ -71,12 +86,12 @@ const LikeButton = () => {
                     </>
                 ) : (
                     <>
-                    {/* below set up code to have button remove the like */}
+                        {/* below set up code to have button remove the like */}
                         <button
-                            onClick={removeALike}> Dislike </button>
+                            onClick={removeALike}> Liked! </button>
                     </>
                 )}
-                    
+
             </div>
         </>
     )
