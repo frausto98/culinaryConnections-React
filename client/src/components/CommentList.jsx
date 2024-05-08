@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { REMOVE_COMMENT } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 
+import Auth from "../utils/auth";
+
 const styles = {
     commentInfo: {
         borderStyle: "dotted ",
@@ -29,6 +31,8 @@ const CommentList = () => {
     })
 
     const comments = data?.recipe.comments
+
+    const authUser = Auth.loggedIn() && Auth.getProfile().data.username == comments.commentAuthor
 
     const [ removeComment ] = useMutation(REMOVE_COMMENT)
 
@@ -74,9 +78,11 @@ const CommentList = () => {
                                     <p>{comment.commentText}</p>
                                 </div>
                                 <div>
-                                    {comment.commentAuthor ? (
+                                {authUser ? (
                                         <>
-                                        <button> Remove Comment </button>
+                                        <button
+                                        value={comment._id}
+                                        onClick={removeAComment}> Remove Comment </button>
                                         </>
                                     ) : (
                                         <>
