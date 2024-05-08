@@ -2,6 +2,9 @@ import { useQuery } from "@apollo/client";
 import { SINGLE_RECIPE } from "../utils/queries";
 import { useParams } from "react-router-dom";
 
+import { REMOVE_COMMENT } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
+
 const styles = {
     commentInfo: {
         borderStyle: "dotted ",
@@ -27,6 +30,24 @@ const CommentList = () => {
 
     const comments = data?.recipe.comments
 
+    const [ removeComment ] = useMutation(REMOVE_COMMENT)
+
+    const removeAComment = async (e) => {
+        const { value } = e.target;
+
+        try {
+            await removeComment({
+                variables: {
+                    recipeId: recipeId,
+                    commentId: value
+                }
+            })
+        } catch (err) {
+            console.log(err)
+            alert(err)
+        }
+    }
+
     if (!comments.length) {
         return (
             <>
@@ -51,6 +72,16 @@ const CommentList = () => {
                                 </div>
                                 <div className="commentBody">
                                     <p>{comment.commentText}</p>
+                                </div>
+                                <div>
+                                    {comment.commentAuthor ? (
+                                        <>
+                                        <button> Remove Comment </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         ))
