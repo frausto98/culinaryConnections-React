@@ -16,6 +16,14 @@
     line-height: 1.1;
 }
 
+@media screen and (max-width: 992px) {
+    .homeBody {
+      background: #772014;
+    }
+  }
+
+/* ****************************** */
+
 /* #homeModalTrigger {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -36,6 +44,8 @@
 #homeModalTrigger:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* ***************************** */
 
 /* for modal purposes */
 
