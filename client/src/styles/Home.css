@@ -16,12 +16,25 @@
     line-height: 1.1;
 }
 
-@media screen and (max-width: 992px) {
+/* When using `max-width` as the breakpoint, you must go from widest to narrowest to avoid conflict */
+/*common breakpoints for widths of devices:
+  • 320px — 480px: Mobile devices
+  • 481px — 768px: iPads, Tablets
+  • 769px — 1024px: Small screens, laptops
+  • 1025px — 1200px: Desktops, large screens*/
+
+@media screen and (max-width: 768px) {
     .homeBody {
       background: #772014;
     }
   }
 
+
+@media screen and (max-width: 475px) {
+    .homeBody {
+        background: blue;
+    }
+}
 /* ****************************** */
 
 /* #homeModalTrigger {

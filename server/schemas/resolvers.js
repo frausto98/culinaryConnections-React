@@ -143,10 +143,10 @@ const resolvers = {
                 return Recipe.findOneAndUpdate(
                     {_id: recipeId },
                     {
-                        $pullAll: {
-                            likes: {
+                        $pull: {
+                                likes : {
                                 likedBy: context.user.username
-                            },
+                                }
                         },
                     },
                     {new: true}
