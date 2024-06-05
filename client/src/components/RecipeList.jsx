@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import '../styles/mainPage.css'
+
 const styles = {
     recipeBox: {
         borderStyle: "dotted ",
@@ -31,7 +33,7 @@ const RecipeList = ({ recipes, username, params }) => {
     // giong to attempt conditionals to condense the code
     return (
         <>
-            <div>
+            <div className="recipeListDiv">
                 {recipes &&
                     recipes.map((recipe) => (
                         <div key={recipe._id} className="recipe" style={styles.recipeBox}>

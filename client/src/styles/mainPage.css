@@ -1,0 +1,8 @@
+.recipeListDiv {
+    display: flex;
+}
+
+.recipe {
+    width: 50%;
+
+}

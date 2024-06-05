@@ -8,13 +8,7 @@ import { RECIPES } from '../utils/queries';
 
 import RecipeList from '../components/RecipeList';
 
-const styles = {
-    recipeBox: {
-        borderStyle: "dotted, dashed, solid, groove",
-        borderWidth: "2px",
-        borderColor: "white"
-    }
-}
+import '../styles/mainPage.css'
 
 const MainPage = () => {
 

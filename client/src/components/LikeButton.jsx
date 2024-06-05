@@ -24,9 +24,9 @@ const LikeButton = () => {
         }
       },[])
 
-    useEffect(() => {
-        localStorage.setItem('buttonStatus', buttonStatus)
-    }, [buttonStatus]);
+    // useEffect(() => {
+    //     localStorage.setItem('buttonStatus', buttonStatus)
+    // }, [buttonStatus]);
 
     // const switchButtonStatus = () => {
     //     if (buttonStatus == like) {
@@ -50,6 +50,7 @@ const LikeButton = () => {
             })
 
             setButtonStatus(dislike)
+            localStorage.setItem('buttonStatus', buttonStatus)
 
         } catch (err) {
             console.log(err);
@@ -69,6 +70,7 @@ const LikeButton = () => {
             })
 
             setButtonStatus(like)
+            localStorage.setItem('buttonStatus', buttonStatus)
 
         } catch (err) {
             console.log(err);
